@@ -1,70 +1,92 @@
-# Getting Started with Create React App
+# E-commerce - React -  CoderHouse - Comisión 19730
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Librerías CSS: 
+-Bootstrap 
+-Bootstrap-icons (sin usar, pendiente desinstalacion)
+-React-bootstrap
+-React-icons
 
-## Available Scripts
+## Últimas modicicaciones : 
+Nota: No están presentes TODAS las modificaciones realizadas, ya que serían demasiadas y harían engorrosa la lectura de este Readme. Están incluidas las modificaciones que me parecieron más pertinentes para documentar
 
-In the project directory, you can run:
+Nota 2: A lo largo del Readme, se utilizará la palabra "componente" para hacer referencia a un archivo .jsx
 
-### `npm start`
+### Miércoles 08/09/2021
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Agregué el Navbar con Bootstrap 
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Domingo 12/09/2021 
 
-### `npm test`
+Realicé varios cambios: 
+Creé los archivos (componentes) "CartWidget.jsx" y "ItemListContainer.jsx" para el desafío de CoderHouse de la Clase 4.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Descargué e importé las librerías CSS "React-bootstrap", "React-icons" y Bootstrap-icons (sin usar, pendiente desinstalacion)
 
-### `npm run build`
+Utilicé "React-icons" para crear el ícono de carrito en el componente "CartWidget.jsx" 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Creé, además, los archivos (componentes) "TituloEcommerce.jsx", "BurgerButton.jsx" y "LinksDelNavbar.jsx" para fragmentar en componentes más pequeños el NavBar. Vea el archivo "NavBar.jsx" del commit anterior ( cb106ed ) cuyo mensaje es "Quise ver si me salia 'mapear' los links del navBar"
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Utilicé la función "links.map()" en el componente "LinksDelNavbar.jsx" para que los links que aparecen al lado del nombre del Ecommerce (Leeds) vengan desde un array. 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Domingo 19/09/2021 
 
-### `npm run eject`
+Creé el archivo "ItemCount.jsx" y le agregue funcionalidades para el desafio de la clase 5: Componentes II.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Realice modificaciones, usando "useState", en "App.jsx" que repercuten en "Navbar.jsx" y en "ItemListContainer". 
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Modifique la organizacion de la carpeta "components": borre el archico "Header" y cree carpetas que contienen los componentes del archivo con el mismo nombre. Ej: "Navbar_files" contiene los componentes hijos de "NavBar.jsx".
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Cambie el icono que viene por default en React.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Lunes 20/09/2021
 
-## Learn More
+Creé los archivos "ItemList.jsx" y "Item.jsx", y les agregué funcionalidades para el desafío de la clase 6: Promises, asincronía y MAP. Además, tambien para completar el desafío, en el archivo "ItemListContainer.jsx" utilicé "useState" y "useEffect" para simular una petición a una base de datos con la promesa "monk_async".
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Agregué un condicional de tipo if/else en "ItemListContainer" para que se muestre un spinner hasta que lleguen los datos. 
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+En el archivo "ItemName.jsx" se utiliza la funcion .map()
 
-### Code Splitting
+## Miercoles 22/09/2021
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Bueno, en el desafio anterior me falto usar el map para mostar varios componentes. Pero no logro que las funciones de cada Item sea independiente. Por, onRestar y onSumar "se ejecutan al mismo tiempo o de igual forma" en todos los Item's creados. Esto se vé en los branch's llamados "MapeoSinFuncionalidad" y "OtroMapeoSinFuncionalidad"(en su primer commit). 
 
-### Analyzing the Bundle Size
+Pero bueno, este ultimo commit de la rama "OtroMapeoSinFuncionalidad" será una """solucion preventiva""" entre muchas comillas. Tengo que revisar mi codigo y mejorarlo, ademas de revisar los estilos. Pero bueno, de a poco 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Mapa/Estructura del proyecto:
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+###   
+    app
+    |__public
+    |   |
+    |   |__iconos
+    |   |    |__android-icon-36x36.png
+    |   |    |__android-icon-48x48.png
+    |   |    |__android-icon-72x72.png
+    |   |    |__android-icon-96x96.png
+    |   |    |__android-icon-144x144.png
+    |   |    |__android-icon-192x192.png
+    |   |    |__favicon.ico
+    |   |    |__manifest.json 
+    |   |__index.html
+    |   |__robots.txt
+    |
+    |__src
+        |__components
+        |    |__ItemLisContainer_files
+        |    |     |__ItemList_files
+        |    |     |     |__Item_files
+        |    |     |     |     |__ItemCount.jsx
+        |    |     |     |     |__ItemImagen.jsx
+        |    |     |     |     |__ItemName.jsx
+        |    |     |     |__Item.jsx
+        |    |     |__ItemList.jsx
+        |    |__Navbar_files
+        |    |     |__LinskDelNavBar_files
+        |    |     |     |__CartWidget.jsx
+        |    |     |__BurgerButtom.jsx
+        |    |     |__LinskDelNavBar.jsx
+        |    |     |__TituloEcommerce.jsx
+        |    |__ItemLisContainer.jsx
+        |    |__NavBar.jsx
+        |__App.jsx
+        |__index.jsx

@@ -1,0 +1,156 @@
+// Color
+$dark: #101415;
+
+// Tipo de letra
+$font-family-sans-serif: "Roboto", sans-serif;
+
+// Shadows
+$box-shadow: 0 0rem 1rem rgba(#c0c0c0, 0.4);
+
+// Bootstrap 5
+@import "../../node_modules/bootstrap/scss/bootstrap.scss";
+
+// Tipografía Billabong - Instagram
+@font-face {
+  font-family: "Billabong";
+  src: url("./fontFamily-Billabong-Instagram.ttf")
+    format("truetype");
+}
+
+// Fuente de instagram
+.fontBillabong {
+  font-family: Billabong, sans-serif;
+}
+
+// Tamaño de fuente
+.font-large {
+  font-size: 30px;
+}
+
+// Espaciado entre palabras
+.word-spacing {
+  word-spacing: 0.25em;
+}
+
+// Link activo
+.active {
+  border-bottom: #c0c0c0;
+}
+
+// Color del body
+body {
+  background: #101415;
+}
+
+// Fondo de Barra de Scroll
+body::-webkit-scrollbar {
+  background: #101415;
+  width: 5px;
+}
+
+// Barra de Scroll
+body::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    0deg,
+    #101415,
+    #f0953320,
+    #f0953350,
+    #f0953380,
+    #f0943390,
+    #e6683c,
+    #e63c3c,
+    #dc2743,
+    #e1306c,
+    #c13584,
+    #833ab4,
+    #5851db,
+    #405de690,
+    #405ce680,
+    #405de650,
+    #405de620,
+    #101415
+  );
+}
+
+/*Blur (Fondo de las cards con Efecto )*/
+.blur {
+  -webkit-backdrop-filter: blur(15px);
+  backdrop-filter: blur(15px);
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+// Limite de espacio que puede ocupar un texto - 1, 2 y 3 lineas
+.text-limit-1 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+.text-limit-2 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.text-limit-3 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+// back-ground tipo instagram
+.bg-instagram {
+  background: linear-gradient(
+    135deg,
+    #f09433,
+    #e6683c,
+    #e63c3c,
+    #dc2743,
+    #e1306c,
+    #c13584,
+    #833ab4,
+    #5851db,
+    #405de6
+  );
+}
+
+// Fondo azul bordes negros
+.bg-blue-degradate {
+  background: linear-gradient(
+    45deg,
+    #101415,
+    #405de6,
+    #5851db,
+    #405de6,
+    #101415
+  );
+}
+
+// Fondo rojo con bordes negros
+.bg-red-degradate {
+  background: linear-gradient(
+    45deg,
+    #101415,
+    #960016,
+    #960016,
+    #960016,
+    #101415
+  );
+}
+
+.bg-prueba {
+  background-image: linear-gradient(
+    to right,
+  
+
+    #b71b5c,
+    #9e155d,
+    #84145b,
+    #65144d,
+    #48123e,
+    #2e0d2c,
+    #101415,
+
+  );
+}
