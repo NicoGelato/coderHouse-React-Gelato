@@ -3,13 +3,13 @@
 import { Link } from "react-router-dom";
 
 //Componentes hijos
-import LinksDelNavbar from "./LinksDelNavbar/LinksDelNavbar";
+import LinksDelNavbar from "./LinksDelNavbar";
 
 const NavBar = () => {
   return (
     <nav
       className="navbar navbar-expand-sm bg-dark px-4 sticky-top shadow"
-      style={{ opacity: "0.9" }}
+     // style={{ opacity: "0.9" }}
     >
       <Link className="navbar-brand m-1" to="/">
         <h1 className="text-white h3">☠️ Leeds</h1>
@@ -27,7 +27,7 @@ const NavBar = () => {
         <span className="navbar-toggler-icon"></span>
       </button>
 
-      <LinksDelNavbar links={["Info", "Contacto", "Productos"]} />
+      <LinksDelNavbar links={["Contacto", "Productos"]} />
 
       
     </nav>

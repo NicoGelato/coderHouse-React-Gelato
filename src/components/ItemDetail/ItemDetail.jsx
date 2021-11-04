@@ -5,7 +5,6 @@ import ItemCount from "../Widgets/ItemCount";
 
 const ItemDetail = ({ item }) => {
   
-console.log(item)
 
   const [cantidadProductos, setCantidadProductos] = useState();
 

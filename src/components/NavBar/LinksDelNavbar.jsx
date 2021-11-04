@@ -1,10 +1,6 @@
-// Componente padre : Navbar
-
-// Librerias
 import { NavLink } from "react-router-dom";
 
-// Componentes hijo
-import CartWidget from "../../Widgets/CartWidget";
+import CartWidget from "../Widgets/CartWidget";
 
 const LinksDelNavBar = ({ links }) => {
   return (
@@ -20,7 +16,11 @@ const LinksDelNavBar = ({ links }) => {
             {link}
           </NavLink>
         ))}
-        <NavLink className="nav-link text-white p-2 mx-2" to="/Carrito">
+        <NavLink
+          activeClassName="border-bottom"
+          className="nav-link text-white p-2 mx-2"
+          to="/Carrito"
+        >
           <CartWidget />
         </NavLink>
       </ul>

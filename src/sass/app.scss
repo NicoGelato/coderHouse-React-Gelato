@@ -115,42 +115,11 @@ body::-webkit-scrollbar-thumb {
   );
 }
 
-// Fondo azul bordes negros
-.bg-blue-degradate {
-  background: linear-gradient(
-    45deg,
-    #101415,
-    #405de6,
-    #5851db,
-    #405de6,
-    #101415
-  );
-}
+// sticky-top-2 del navbar categorias
 
-// Fondo rojo con bordes negros
-.bg-red-degradate {
-  background: linear-gradient(
-    45deg,
-    #101415,
-    #960016,
-    #960016,
-    #960016,
-    #101415
-  );
-}
-
-.bg-prueba {
-  background-image: linear-gradient(
-    to right,
-  
-
-    #b71b5c,
-    #9e155d,
-    #84145b,
-    #65144d,
-    #48123e,
-    #2e0d2c,
-    #101415,
-
-  );
+.sticky-top-2 {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 80px;
+  z-index: 1020;
 }

@@ -3,21 +3,24 @@ import { useParams } from "react-router";
 
 import ItemDetail from "../components/ItemDetail/ItemDetail";
 
-import { getProductoById } from "../utils/getProductoById";
+import { getProductosById } from "../utils/getProductosById";
 
 const ItemDetailContainer = () => {
+
   const { id } = useParams();
 
   const [product, setProduct] = useState({});
 
-const getProductoByIdData = async () => {
-    const productos = await getProductoById(id);
-    setProduct(productos)
+  
+  const getProductosByIdData = async () => {
+    const productos = await getProductosById(id);
     
-  } 
-
+    console.log(productos);
+      setProduct(productos)
+      
+    } 
   useEffect(() => {
-    getProductoByIdData()
+    getProductosByIdData()
   }, []);
 
   return (
