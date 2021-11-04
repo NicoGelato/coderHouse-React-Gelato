@@ -3,12 +3,13 @@ import ItemList from "../components/ItemList/ItemList";
 import { useItemContext } from "../context/ItemContext";
 
 const ItemListContainer = () => {
-
   const context = useItemContext();
 
   const { productos } = context;
 
   console.log(productos);
+
+  // Nota para el nico del futuro Que tal si hago si  !productos else{mostrar la lista}
 
   if (productos.length > 0) {
     return (
@@ -23,18 +24,6 @@ const ItemListContainer = () => {
           ☠️ Cargando productos... ☠️
         </h1>
         <div className="d-flex justify-content-center m-5">
-          <div
-            className="spinner-grow spinner-grow-sm text-light mx-1"
-            role="status"
-          >
-            <span className="visually-hidden">Cargando...</span>
-          </div>
-          <div
-            className="spinner-grow spinner-grow-sm text-light mx-1"
-            role="status"
-          >
-            <span className="visually-hidden">Cargando...</span>
-          </div>
           <div
             className="spinner-grow spinner-grow-sm text-light mx-1"
             role="status"

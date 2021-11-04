@@ -5,6 +5,8 @@ import ItemCount from "../Widgets/ItemCount";
 
 const ItemDetail = ({ item }) => {
   
+console.log(item)
+
   const [cantidadProductos, setCantidadProductos] = useState();
 
   const { title, image, description, price } = item;
@@ -13,19 +15,8 @@ const ItemDetail = ({ item }) => {
     setCantidadProductos(resultadoItemCount);
   };
 
-  /*
-  const addItem = () => {
-    
-    const itemConCantidadProductos = { ...item, cantidadProductos };
-    
-    setCarrito(prev => {
-      return [...prev, itemConCantidadProductos];
-    })
-  }
-  */
-
   return (
-    <div className="card mb-3 blur" style={{ maxwidth: "540px" }}>
+    <div className="card mb-3 bg-grey-50" style={{ maxwidth: "540px" }}>
       <div className="row g-0">
         <div className="col-md-4">
           <img

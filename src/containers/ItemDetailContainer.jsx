@@ -1,23 +1,28 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router";
-
-import {getProductoById} from "../utils/getProductoById"
 
 import ItemDetail from "../components/ItemDetail/ItemDetail";
 
-const ItemDetailContainer = () => {
-  
-  const [item, setItem] = useState([]);
+import { getProductoById } from "../utils/getProductoById";
 
-  
+const ItemDetailContainer = () => {
   const { id } = useParams();
 
-  console.log(id)
-  console.log(getProductoById());
-  
+  const [product, setProduct] = useState({});
+
+const getProductoByIdData = async () => {
+    const productos = await getProductoById(id);
+    setProduct(productos)
+    
+  } 
+
+  useEffect(() => {
+    getProductoByIdData()
+  }, []);
+
   return (
     <div className="container-fluid pt-3">
-      <ItemDetail item={item} />
+      <ItemDetail item={product} />
     </div>
   );
 };

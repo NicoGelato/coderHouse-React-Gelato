@@ -15,12 +15,12 @@ const ItemList = ({ productos }) => {
             key={`productoN${index}`}
           >
             <Item
-              category={categoryId}
-              imagenURL={image}
+              categoryId={categoryId}
+              image={image}
               id={id}
-              nombre={title}
-              descripcion={description}
-              precio={price}
+              title={title}
+              description={description}
+              price={price}
             />
           </div>
         );

@@ -4,7 +4,6 @@ import { getProductos } from "../utils/getProductos";
 
 const itemContext = createContext();
 
-
 const { Provider } = itemContext;
 
 const ProviderItemContext = ({ children }) => {

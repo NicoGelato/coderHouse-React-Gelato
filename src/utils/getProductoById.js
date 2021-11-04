@@ -1,22 +1,19 @@
-import { collection, query, where, getDocs } from "firebase/firestore";
+import { query, getDoc, doc } from "firebase/firestore";
 
 import { db } from "../firebase/firebaseConfig";
 
-export const getProductoById = async () => {
+export const getProductoById = async (id) => {
   try {
-    const querySnapshot = await getDocs(query(collection(db, "productos")));
+    const OneProductSnapshot = await getDoc(query(doc(db, "productos", id)));
 
-    
-    
-    console.log("Hola soy el querySnapshot", querySnapshot.docs);
-    const productoByCategory = querySnapshot.docs.map((documento) => {
-      return {
-        id: documento.id,
-        ...documento.data(),
-      };
-    });
+    const productoById = {
+      id: OneProductSnapshot.id,
+      ...OneProductSnapshot.data(),
+    };
 
-    return productoByCategory;
+    console.log(productoById);
+
+    return productoById;
   } catch (error) {
     console.log(error);
   }

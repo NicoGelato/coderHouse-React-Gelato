@@ -12,6 +12,7 @@ const Cart = () => {
       <table className="table table-dark table-hover">
         <thead>
           <tr>
+  
             <th scope="col">Nombre del producto</th>
             <th scope="col">Precio unitario</th>
             <th scope="col">Cantidad a comprar</th>
