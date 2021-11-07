@@ -1,19 +1,13 @@
-//Componente Padre : AppRoutes
-
-import { Link } from "react-router-dom";
-
-//Componentes hijos
-import LinksDelNavbar from "./LinksDelNavbar";
+import { NavLink } from "react-router-dom";
+import CartWidget from "../Widgets/CartWidget";
 
 const NavBar = () => {
+
   return (
-    <nav
-      className="navbar navbar-expand-sm bg-dark px-4 sticky-top shadow"
-     // style={{ opacity: "0.9" }}
-    >
-      <Link className="navbar-brand m-1" to="/">
+    <nav className="navbar navbar-expand-sm bg-dark px-4 sticky-top shadow">
+      <NavLink className="navbar-brand m-1" to="/">
         <h1 className="text-white h3">☠️ Leeds</h1>
-      </Link>
+      </NavLink>
 
       <button
         className="navbar-toggler d-sm-block d-md-none shadow-none border-0"
@@ -27,9 +21,33 @@ const NavBar = () => {
         <span className="navbar-toggler-icon"></span>
       </button>
 
-      <LinksDelNavbar links={["Contacto", "Productos"]} />
-
       
+
+      <div className="collapse navbar-collapse" id="toggleMobileMenu">
+        <ul className="navbar-nav ms-auto align-items-start">
+          <NavLink
+            activeClassName="border-bottom"
+            className="nav-link text-white p-2 mx-2"
+            to="/Contacto"
+          >
+            Contacto
+          </NavLink>
+          <NavLink
+            activeClassName="border-bottom"
+            className="nav-link text-white p-2 mx-2"
+            to="/Productos"
+          >
+            Productos
+          </NavLink>
+          <NavLink
+            activeClassName="border-bottom"
+            className="nav-link text-white p-2 mx-2"
+            to="/Carrito"
+          >
+            <CartWidget />
+          </NavLink>
+        </ul>
+      </div>
     </nav>
   );
 };

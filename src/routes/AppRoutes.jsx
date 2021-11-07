@@ -1,39 +1,33 @@
-// Padre: App
-
-// Librerias
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
-// Componetes hijo
+import { ItemContextProvider } from "../context/ItemContext";
+import { CartProvider } from "../context/CartContext";
+
 import NavBar from "../components/NavBar/NavBar";
-import WellcomePage from "../components/Wellcome/WellcomePage";
-import Cart from "../components/Cart/Cart";
-
-import { ProviderItemContext } from "../context/ItemContext";
-
-// Containers
 import ItemListContainer from "../containers/ItemListContainer";
 import ItemDetailContainer from "../containers/ItemDetailContainer";
+import CartContainer from "../containers/CartContainer";
+import WellcomePage from "../components/Wellcome/WellcomePage";
 
 const AppRoutes = () => {
   return (
     <BrowserRouter>
       <NavBar />
-      <ProviderItemContext>
+      <CartProvider>
+      <ItemContextProvider>
         <Switch>
           <Route path="/Productos" exact component={ItemListContainer} />
-
-          <Route path="/Productos/:id" exact component={ItemDetailContainer} />
-
           <Route
             path="/Productos/categoria/:categoryId"
             exact
             component={ItemListContainer}
           />
-
-          <Route path="/Carrito" exact component={Cart} />
-          <Route path="/" exact component={WellcomePage} />
         </Switch>
-      </ProviderItemContext>
+        <Route path="/Productos/:id" exact component={ItemDetailContainer} />
+      </ItemContextProvider>
+        <Route path="/Carrito" exact component={CartContainer} />
+      </CartProvider>
+      <Route path="/" exact component={WellcomePage} />
     </BrowserRouter>
   );
 };

@@ -11,7 +11,6 @@ export const getProductosById = async (id) => {
       id: OneProductSnapshot.id,
       ...OneProductSnapshot.data(),
     };
-console.log(productoById);
     return productoById;
   } catch (error) {
     console.log(error);

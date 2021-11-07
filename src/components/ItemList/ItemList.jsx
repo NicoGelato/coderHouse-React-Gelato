@@ -7,13 +7,13 @@ const ItemList = ({ productos }) => {
 
   return (
     <div className="row rounded-3 p-1">
-      {productos.map((element, index) => {
-        const { image, title, description, price, categoryId, id } = element;
+      {productos.map((producto) => {
+        const { image, title, description, price, categoryId, id } = producto;
 
         return (
           <div
             className="col-12 col-md-6 col-lg-3 p-3"
-            key={`productoN${index}`}
+            key={id}
           >
             <Item
               categoryId={categoryId}

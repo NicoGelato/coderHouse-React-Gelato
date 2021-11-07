@@ -9,18 +9,18 @@ import { AiOutlineMinus } from "react-icons/ai";
 
 const ItemCount = ({onAdd}) => {
 
-const [resultadoItemCount, setResultadoItemCount] = useState(0);
+const [count, setCount] = useState(1);
 
-  onAdd(resultadoItemCount);
+  onAdd(count);
   
   const onRestar = () => {
-    if (resultadoItemCount > 0) {
-      setResultadoItemCount(resultadoItemCount - 1);
+    if (count > 0) {
+      setCount(count - 1);
     }
   }
   
   const onSumar = () => {
-    setResultadoItemCount(resultadoItemCount + 1);
+    setCount(count + 1);
   }
 
 
@@ -30,7 +30,7 @@ const [resultadoItemCount, setResultadoItemCount] = useState(0);
         <button className="blur  mx-2" onClick={onRestar}>
           <AiOutlineMinus />
         </button>
-        <span className="border px-5 py-1">{resultadoItemCount}</span>
+        <span className="border px-5 py-1">{count}</span>
         <button className="blur mx-2" onClick={onSumar}>
           <AiOutlinePlus />
         </button>

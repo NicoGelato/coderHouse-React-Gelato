@@ -1,51 +1,38 @@
-import { useEffect } from "react";
-
-import { NavLink, Link } from "react-router-dom";
+import React, { useState, useEffect, useCallback } from "react";
+import { NavLink } from "react-router-dom";
+import { useParams } from "react-router";
 
 import ItemList from "../components/ItemList/ItemList";
 
-import { useItemContext } from "../context/ItemContext";
-
-import { useParams } from "react-router";
-
+import { getProductos } from "../utils/getProductos";
+import { getProductosByCategory } from "../utils/getProductosByCategory";
+import Loader from "../components/Loader/Loader";
 
 const ItemListContainer = () => {
   const { categoryId } = useParams();
 
-  const context = useItemContext();
+  const [productos, setProductos] = useState(null);
 
-  const { productos, getProductosDataso } = context;
+  const getProductosData = async (categoryId) => {
+    const productosData = !categoryId
+      ? await getProductos()
+      : await getProductosByCategory(categoryId);
 
-  const { getProductosData } = getProductosDataso
+    setProductos(productosData);
+  };
 
-  console.log(productos, getProductosData);
-
-  /*
   useEffect(() => {
     getProductosData(categoryId);
-  }, [])
-*/
+  }, [categoryId]);
 
   if (!productos) {
+
     return (
-      <div className="bg-dark p-2 pt-3 opacity-75">
-        <h1 className="text-center text-white h3">
-          ☠️ Cargando productos... ☠️
-        </h1>
-        <div className="d-flex justify-content-center m-5">
-          <div
-            className="spinner-grow spinner-grow-sm text-light mx-1"
-            role="status"
-          >
-            <span className="visually-hidden">Cargando...</span>
-          </div>
-        </div>
-      </div>
+<Loader/>
     );
   } else {
-    console.log(productos);
-
-    console.log(categoryId);
+    
+    const categorias = ["Remeras", "Buzos"];
 
     return (
       <>
@@ -60,25 +47,18 @@ const ItemListContainer = () => {
                 Todos los productos
               </NavLink>
 
-              <Link
-                activeClassName=""
-                className="nav-link bg-dark text-white border-light"
-                to={`/Productos/Categoria/Remeras`}
-              >
-                Remeras
-              </Link>
-
-              <NavLink
-                activeClassName=""
-                className="nav-link bg-dark text-white border-light"
-                to={`/Productos/Categoria/Buzos`}
-              >
-                Buzos
-              </NavLink>
+              {categorias.map((categoria, index) => (
+                <NavLink
+                  key={index}
+                  activeClassName=""
+                  className="nav-link bg-dark text-white border-light"
+                  to={`/Productos/Categoria/${categoria}`}
+                >
+                  {categoria}
+                </NavLink>
+              ))}
             </ul>
           </div>
-
-          <ItemList productos={productos} />
           <ItemList productos={productos} />
         </div>
       </>
@@ -86,4 +66,4 @@ const ItemListContainer = () => {
   }
 };
 
-export default ItemListContainer;
+export default React.memo(ItemListContainer);
