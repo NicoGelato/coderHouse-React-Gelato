@@ -1,5 +1,9 @@
+import { useCartContext } from "../../context/CartContext";
+import {AiTwotoneDelete} from "react-icons/ai";
 
-const Cart = ({items}) => {
+const Cart = () => {
+  const { items, removeItem } = useCartContext();
+
   return (
     <div className="container mt-5">
       <table className="table table-dark table-hover">
@@ -18,6 +22,9 @@ const Cart = ({items}) => {
               <td>$ {el.price}</td>
               <td>{el.quantity}</td>
               <td>$ {el.quantity * el.price}</td>
+            <button onClick={() => removeItem(el.id)}>
+              <AiTwotoneDelete style={{ color: "white", fontSize: "1.5rem" }} />
+            </button>
             </tr>
           </tbody>
         ))}

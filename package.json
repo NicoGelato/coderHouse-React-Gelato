@@ -1,6 +1,12 @@
 {
-  "name": "my-app",
+  "name": "leeds",
   "version": "0.1.0",
+  "description": "mi primer proyecto de ecommerce con rect",
+  "keywords": ["Leeds", "Indumentarias Leeds"],
+  "author": {
+    "name": "Nicolas Gelato",
+    "email": "nicolasgelato@gmail.com"
+  },
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.14.1",

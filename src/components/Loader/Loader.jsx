@@ -4,11 +4,11 @@ const Loader = () => {
   const [tardoMucho, setTardoMucho] = useState(false);
 
   useEffect(() => {
-    const esperar = setTimeout(() => {
+    const esperarTreintaSeg = setTimeout(() => {
       setTardoMucho(true);
     }, 30000);
     return () => {
-      clearTimeout(esperar);
+      clearTimeout(esperarTreintaSeg);
     };
   }, []);
 

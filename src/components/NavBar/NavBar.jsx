@@ -28,13 +28,6 @@ const NavBar = () => {
           <NavLink
             activeClassName="border-bottom"
             className="nav-link text-white p-2 mx-2"
-            to="/Contacto"
-          >
-            Contacto
-          </NavLink>
-          <NavLink
-            activeClassName="border-bottom"
-            className="nav-link text-white p-2 mx-2"
             to="/Productos"
           >
             Productos

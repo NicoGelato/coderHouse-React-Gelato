@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { useParams } from "react-router";
 
@@ -26,12 +26,8 @@ const ItemListContainer = () => {
   }, [categoryId]);
 
   if (!productos) {
-
-    return (
-<Loader/>
-    );
+    return <Loader />;
   } else {
-    
     const categorias = ["Remeras", "Buzos"];
 
     return (
@@ -40,7 +36,6 @@ const ItemListContainer = () => {
           <div className="navbar sticky-top-2">
             <ul className="nav nav-tabs">
               <NavLink
-                activeClassName=""
                 className="nav-link bg-dark text-white border-light"
                 to="/Productos"
               >
@@ -50,8 +45,8 @@ const ItemListContainer = () => {
               {categorias.map((categoria, index) => (
                 <NavLink
                   key={index}
-                  activeClassName=""
                   className="nav-link bg-dark text-white border-light"
+                  activeClassName="shadow"
                   to={`/Productos/Categoria/${categoria}`}
                 >
                   {categoria}
@@ -66,4 +61,4 @@ const ItemListContainer = () => {
   }
 };
 
-export default React.memo(ItemListContainer);
+export default ItemListContainer;

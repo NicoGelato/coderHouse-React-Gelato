@@ -36,8 +36,8 @@ const CartProvider = ({ children }) => {
 
   const removeItem = (id) => {
     if (items.length > 0) {
-      const updateItems = items.filter(function (item) {
-        return item.productId !== id;
+      const updateItems = items.filter((item) => {
+        return item.id !== id;
       });
       setItems(updateItems);
     }

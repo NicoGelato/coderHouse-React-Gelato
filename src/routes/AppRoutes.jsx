@@ -6,7 +6,7 @@ import { CartProvider } from "../context/CartContext";
 import NavBar from "../components/NavBar/NavBar";
 import ItemListContainer from "../containers/ItemListContainer";
 import ItemDetailContainer from "../containers/ItemDetailContainer";
-import CartContainer from "../containers/CartContainer";
+import Cart from "../components/Cart/Cart"
 import WellcomePage from "../components/Wellcome/WellcomePage";
 
 const AppRoutes = () => {
@@ -25,7 +25,7 @@ const AppRoutes = () => {
         </Switch>
         <Route path="/Productos/:id" exact component={ItemDetailContainer} />
       </ItemContextProvider>
-        <Route path="/Carrito" exact component={CartContainer} />
+        <Route path="/Carrito" exact component={Cart} />
       </CartProvider>
       <Route path="/" exact component={WellcomePage} />
     </BrowserRouter>

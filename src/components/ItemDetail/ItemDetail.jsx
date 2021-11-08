@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useCartContext } from "../../context/CartContext";
 import useItemCount from "../Widgets/useItemCount";
@@ -13,8 +12,6 @@ const ItemDetail = ({ item }) => {
     RenderItemCount,
   } = useItemCount()
   
-
-
   return (
     <div className="card mb-3 bg-grey-50" style={{ maxwidth: "540px" }}>
       <div className="row g-0">
