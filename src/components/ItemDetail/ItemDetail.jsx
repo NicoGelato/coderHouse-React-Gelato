@@ -1,25 +1,18 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useCartContext } from "../../context/CartContext";
-import ItemCount from "../Widgets/ItemCount";
+import useItemCount from "../Widgets/useItemCount";
 
 const ItemDetail = ({ item }) => {
 
-
-
   const { title, image, description, price, id } = item;
-  
   const { addToCart } = useCartContext();
-
-
-  const [quantity, setQuantity] = useState(1);
-
-
-  const onAdd = (count) => {
-    setQuantity(count);
-  };
-
-
+  
+  const {
+    count: quantity,
+    RenderItemCount,
+  } = useItemCount()
+  
 
 
   return (
@@ -37,10 +30,10 @@ const ItemDetail = ({ item }) => {
             <h5 className="card-title">{`${title}`}</h5>
             <p className="card-text">{`${description}`}</p>
 
-            <ItemCount onAdd={onAdd} />
+            <RenderItemCount />
             <button
               className="blur border-white p-0 mx-1"
-              onClick={()=>addToCart(title, quantity, id, price)}
+              onClick={() => addToCart(title, quantity, id, price)}
             >
               Agregar Producto
             </button>

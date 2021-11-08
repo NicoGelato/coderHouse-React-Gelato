@@ -5,8 +5,6 @@ import { db } from "../firebase/firebaseConfig";
 export const getProductosById = async (id) => {
   try {
     const OneProductSnapshot = await getDoc(query(doc(db, "productos", id)));
-
-
     const productoById = {
       id: OneProductSnapshot.id,
       ...OneProductSnapshot.data(),

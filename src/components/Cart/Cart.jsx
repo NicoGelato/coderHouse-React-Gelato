@@ -17,7 +17,7 @@ const Cart = ({items}) => {
               <th scope="row">{el.title}</th>
               <td>$ {el.price}</td>
               <td>{el.quantity}</td>
-              <td>Banca mostro, ya te hago la cuenta</td>
+              <td>$ {el.quantity * el.price}</td>
             </tr>
           </tbody>
         ))}

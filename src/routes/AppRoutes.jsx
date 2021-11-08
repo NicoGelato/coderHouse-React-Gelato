@@ -12,8 +12,8 @@ import WellcomePage from "../components/Wellcome/WellcomePage";
 const AppRoutes = () => {
   return (
     <BrowserRouter>
-      <NavBar />
       <CartProvider>
+      <NavBar />
       <ItemContextProvider>
         <Switch>
           <Route path="/Productos" exact component={ItemListContainer} />
