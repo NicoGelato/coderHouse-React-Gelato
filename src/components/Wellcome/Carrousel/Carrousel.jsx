@@ -29,11 +29,15 @@ const Carrousel = () => {
         </div>
         <div className="carousel-inner">
           <div className="carousel-item active">
+
+
             <img
-              src="https://images.pexels.com/photos/1319828/pexels-photo-1319828.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+              src="./imagenes_carousel/carousel_1.jpg"
               className="d-block w-100"
               alt="..."
             />
+
+            
             <div className="card-img-overlay container m-5 p-5">
               <span className="h2 bg-dark text-white m-3">
                 Bienvenid@s wachines 🤙

@@ -19,7 +19,7 @@ const ItemListContainer = () => {
       : await getProductosByCategory(categoryId);
 
     setProductos(productosData);
-  })
+  }, [])
 
   useEffect(() => {
     getProductosData(categoryId);
