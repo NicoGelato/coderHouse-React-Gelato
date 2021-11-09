@@ -1,6 +1,5 @@
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
-import { ItemContextProvider } from "../context/ItemContext";
 import { CartProvider } from "../context/CartContext";
 
 import NavBar from "../components/NavBar/NavBar";
@@ -14,7 +13,6 @@ const AppRoutes = () => {
     <BrowserRouter>
       <CartProvider>
       <NavBar />
-      <ItemContextProvider>
         <Switch>
           <Route path="/Productos" exact component={ItemListContainer} />
           <Route
@@ -24,7 +22,6 @@ const AppRoutes = () => {
           />
         </Switch>
         <Route path="/Productos/:id" exact component={ItemDetailContainer} />
-      </ItemContextProvider>
         <Route path="/Carrito" exact component={Cart} />
       </CartProvider>
       <Route path="/" exact component={WellcomePage} />

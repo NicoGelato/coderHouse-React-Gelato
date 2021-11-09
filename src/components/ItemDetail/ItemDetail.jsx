@@ -30,7 +30,7 @@ const ItemDetail = ({ item }) => {
             <RenderItemCount />
             <button
               className="blur border-white p-0 mx-1"
-              onClick={() => addToCart(title, quantity, id, price)}
+              onClick={() => addToCart(id, title, quantity, price)}
             >
               Agregar Producto
             </button>

@@ -1,4 +1,4 @@
-import { createContext, useContext , useState, useEffect } from "react";
+import { createContext, useContext, useState, useEffect } from "react";
 
 const cartContext = createContext([]);
 
@@ -9,13 +9,11 @@ const CartProvider = ({ children }) => {
 
   const setAndStore = (list) => {
     setItems(list);
-    localStorage.setItem("items", JSON.stringify(list) )
-  }
+    localStorage.setItem("items", JSON.stringify(list));
+  };
 
-  const addToCart = (title, quantity, id, price) => {
-
-    const existItem = items.find((item) => item.id === id
-    )
+  const addToCart = (id, title, quantity, price) => {
+    const existItem = items.find((item) => item.id === id);
 
     if (!existItem) {
       const item = [
@@ -24,30 +22,31 @@ const CartProvider = ({ children }) => {
       ];
       setAndStore(item);
     } else {
-      existItem.quantity += quantity
+      existItem.quantity += quantity;
       setAndStore([...items]);
     }
   };
 
-  useEffect(() => {
-    const items = JSON.parse(localStorage.getItem("items") || "[]");
-    setItems(items)
-  }, [])
-
+  
   const removeItem = (id) => {
     if (items.length > 0) {
       const updateItems = items.filter((item) => {
         return item.id !== id;
       });
-      setItems(updateItems);
+      setAndStore(updateItems);
     }
   };
 
   const getTotalItems = () => {
     return items.reduce((totalCount, item) => {
-      return totalCount + item.quantity
-    }, 0)
-  }
+      return totalCount + item.quantity;
+    }, 0);
+  };
+
+  useEffect(() => {
+    const items = JSON.parse(localStorage.getItem("items") || "[]");
+    setItems(items);
+  }, []);
 
 
   return (
@@ -57,10 +56,8 @@ const CartProvider = ({ children }) => {
   );
 };
 
-
 const useCartContext = () => {
   return useContext(cartContext);
 };
-
 
 export { CartProvider, useCartContext };

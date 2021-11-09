@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { NavLink } from "react-router-dom";
 import { useParams } from "react-router";
 
@@ -13,13 +13,13 @@ const ItemListContainer = () => {
 
   const [productos, setProductos] = useState(null);
 
-  const getProductosData = async (categoryId) => {
+  const getProductosData = useCallback( async (categoryId) => {
     const productosData = !categoryId
       ? await getProductos()
       : await getProductosByCategory(categoryId);
 
     setProductos(productosData);
-  };
+  })
 
   useEffect(() => {
     getProductosData(categoryId);

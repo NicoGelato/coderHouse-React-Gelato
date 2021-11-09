@@ -2,13 +2,18 @@
   "name": "leeds",
   "version": "0.1.0",
   "description": "mi primer proyecto de ecommerce con rect",
-  "keywords": ["Leeds", "Indumentarias Leeds"],
+  "keywords": [
+    "Leeds",
+    "Indumentarias Leeds"
+  ],
   "author": {
     "name": "Nicolas Gelato",
     "email": "nicolasgelato@gmail.com"
   },
+  "main": "index.jsx",
   "private": true,
   "dependencies": {
+    "@craco/craco": "^6.4.0",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
@@ -26,6 +31,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "limpiarcss": "purgecss --css ./src/scss/app.css --content *.html *.jsx --output ./src/scss/css/reducido.css",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -46,5 +52,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@fullhuman/postcss-purgecss": "^4.0.3",
+    "purgecss": "^4.0.3"
   }
 }
