@@ -3,14 +3,14 @@ import { IoCartOutline } from "react-icons/io5";
 
 const CartWidget = () => {
 
-  const { getTotalItems } = useCartContext(); 
+  const { getTotalProducts } = useCartContext(); 
 
   return (
-    <span style={{ alignItems: "center" }}>
+    <div style={{ alignItems: "center" }}>
       {" "}
       <IoCartOutline style={{ color: "white", fontSize: "1.5rem" }} />{" "}
-      {getTotalItems()}
-    </span>
+      <span>{getTotalProducts()}</span>
+    </div>
   );
 };
 

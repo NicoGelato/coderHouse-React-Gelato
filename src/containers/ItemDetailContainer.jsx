@@ -11,20 +11,18 @@ const ItemDetailContainer = () => {
 
   const [product, setProduct] = useState(null);
 
-  const getProductosByIdData = async () => {
+  const getProductosByIdData = async (id) => {
     const productos = await getProductosById(id);
 
     setProduct(productos);
   };
 
   useEffect(() => {
-    getProductosByIdData();
-  }, []);
+    getProductosByIdData(id);
+  }, [id]);
 
   if (!product) {
-    return (
-<Loader></Loader>
-    );
+    return <Loader />;
   } else {
     return (
       <div className="container-fluid pt-3">

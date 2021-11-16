@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useCartContext } from "../../context/CartContext";
-import useItemCount from "../Widgets/useItemCount";
+import useItemCount from "../../hooks/useItemCount";
 
 const ItemDetail = ({ item }) => {
 
@@ -13,9 +13,10 @@ const ItemDetail = ({ item }) => {
   } = useItemCount()
   
   return (
-    <div className="card mb-3 bg-grey-50" style={{ maxwidth: "540px" }}>
+    <div className="card mb-3 blur text-white" style={{ maxwidth: "540px" }}>
       <div className="row g-0">
         <div className="col-md-4">
+          <small className="text-muted">*Imagen meramente ilustrativa</small>
           <img
             src={`${image}`}
             className="img-fluid rounded-start"
@@ -23,28 +24,28 @@ const ItemDetail = ({ item }) => {
           />
         </div>
         <div className="col-md-8">
-          <div className="card-body">
-            <h5 className="card-title">{`${title}`}</h5>
-            <p className="card-text">{`${description}`}</p>
-
-            <RenderItemCount />
-            <button
-              className="blur border-white p-0 mx-1"
-              onClick={() => addToCart(id, title, quantity, price)}
-            >
-              Agregar Producto
-            </button>
-            <p className="card-text">
-              <small className="text-muted">
-                Precio x unidad: ${`${price}`}
-              </small>
-            </p>
+          <div className="card-body text-center">
+              <h1 className="h1 card-title">{`${title}`}</h1>
+              <p className="card-text">{`${description}`}</p>
+              <p className="h6 card-text">Precio x unidad: ${`${price}`}</p>
+              <RenderItemCount />
+              <p className="h4 card-text my-2">
+                Precio total: ${`${price * quantity}`}
+              </p>
+              <button
+                className="btn btn-dark border-instagram m-2"
+                onClick={() => addToCart(id, image, title, quantity, price)}
+              >
+                Agregar Producto
+              </button>
           </div>
         </div>
       </div>
       <Link to="/carrito">
         {" "}
-        <button>Terminar compra</button>{" "}
+        <button className="btn btn-dark border-instagram m-2">
+          Terminar compra
+        </button>{" "}
       </Link>
     </div>
   );

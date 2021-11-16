@@ -13,50 +13,60 @@ const ItemListContainer = () => {
 
   const [productos, setProductos] = useState(null);
 
-  const getProductosData = useCallback( async (categoryId) => {
+  const getProductosData = async (categoryId) => {
     const productosData = !categoryId
       ? await getProductos()
       : await getProductosByCategory(categoryId);
 
     setProductos(productosData);
-  }, [])
+  };
 
-  useEffect(() => {
-    getProductosData(categoryId);
-  }, [categoryId]);
+
+  const productList= useCallback(() => {
+      getProductosData(categoryId);
+    }, [categoryId])
+
+useEffect(() => {
+  setProductos(productList);
+}, [productList]);
 
   if (!productos) {
     return <Loader />;
   } else {
-    const categorias = ["Remeras", "Buzos"];
-
     return (
-      <>
-        <div className="container pt-3">
-          <div className="navbar sticky-top-2">
-            <ul className="nav nav-tabs">
+      <div className="container mt-1">
+        <div className="navbar sticky-top-2  ">
+          <ul className="nav">
+            <li className="nav-item">
               <NavLink
-                className="nav-link bg-dark text-white border-light"
+                className="nav-link bg-dark text-white"
                 to="/Productos"
               >
                 Todos los productos
               </NavLink>
-
-              {categorias.map((categoria, index) => (
-                <NavLink
-                  key={index}
-                  className="nav-link bg-dark text-white border-light"
-                  activeClassName="shadow"
-                  to={`/Productos/Categoria/${categoria}`}
-                >
-                  {categoria}
-                </NavLink>
-              ))}
-            </ul>
-          </div>
-          <ItemList productos={productos} />
+            </li>
+            <li className="nav-item">
+              <NavLink
+                className="nav-link bg-dark text-white"
+                activeClassName="border-instagram"
+                to="/Productos/Categoria/Remeras"
+              >
+                Remeras{" "}
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink
+                className="nav-link bg-dark text-white"
+                activeClassName="border-instagram"
+                to="/Productos/Categoria/Buzos"
+              >
+                Buzos
+              </NavLink>
+            </li>
+          </ul>
         </div>
-      </>
+        <ItemList productos={productos} />
+      </div>
     );
   }
 };

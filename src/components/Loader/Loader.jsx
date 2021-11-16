@@ -13,7 +13,7 @@ const Loader = () => {
   }, []);
 
   return (
-    <div className="bg-dark p-2 pt-3 opacity-75">
+    <div className="m-5 opacity-75">
       {tardoMucho ? (
         <>
           <h1 className="text-center text-white h3">

@@ -1,3 +1,7 @@
+import imagen1 from "./imagenes_carousel/carousel_1.jpg"
+import imagen2 from "./imagenes_carousel/carousel_2.jpg"
+import imagen3 from "./imagenes_carousel/carousel_3.jpg"
+
 const Carrousel = () => {
     return (
       <div
@@ -29,15 +33,8 @@ const Carrousel = () => {
         </div>
         <div className="carousel-inner">
           <div className="carousel-item active">
+            <img src={imagen1} className="d-block w-100" alt="..." />
 
-
-            <img
-              src="./imagenes_carousel/carousel_1.jpg"
-              className="d-block w-100"
-              alt="..."
-            />
-
-            
             <div className="card-img-overlay container m-5 p-5">
               <span className="h2 bg-dark text-white m-3">
                 Bienvenid@s wachines 🤙
@@ -52,18 +49,10 @@ const Carrousel = () => {
             </div>
           </div>
           <div className="carousel-item">
-            <img
-              src="https://images.pexels.com/photos/3152193/pexels-photo-3152193.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-              className="d-block w-100"
-              alt="..."
-            />
+            <img src={imagen2} className="d-block w-100" alt="..." />
           </div>
           <div className="carousel-item">
-            <img
-              src="https://images.pexels.com/photos/2690323/pexels-photo-2690323.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260"
-              className="d-block w-100"
-              alt="..."
-            />
+            <img src={imagen3} className="d-block w-100" alt="..." />
           </div>
           <button
             className="carousel-control-prev"

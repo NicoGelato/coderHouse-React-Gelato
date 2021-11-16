@@ -1,15 +1,13 @@
 import BannerInstagram from "./BannerInstagram/BannerInstagram";
-import Carrousel from "./Carrousel/Carrousel"
+import Carrousel from "./Carrousel/Carrousel";
 
 const WellcomePage = () => {
-    return (
-      <>
-        <BannerInstagram
-          linkInstagram="https://www.instagram.com/indumentarialeeds/?hl=es"
-        />
-        <Carrousel />
-      </>
-    );
+  return (
+    <>
+      <BannerInstagram />
+      <Carrousel />
+    </>
+  );
 };
 
 export default WellcomePage;

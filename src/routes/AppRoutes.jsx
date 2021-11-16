@@ -16,7 +16,7 @@ const AppRoutes = () => {
         <Switch>
           <Route path="/Productos" exact component={ItemListContainer} />
           <Route
-            path="/Productos/categoria/:categoryId"
+            path="/Productos/Categoria/:categoryId"
             exact
             component={ItemListContainer}
           />

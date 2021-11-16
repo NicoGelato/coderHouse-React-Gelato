@@ -7,7 +7,7 @@ const useItemCount = () => {
   const [count, setCount] = useState(1);
 
   const onDecrement = () => {
-    if (count > 0) {
+    if (count > 1) {
       setCount(count - 1);
     }
   };
@@ -17,17 +17,21 @@ const useItemCount = () => {
   };
 
   const RenderItemCount = () => (
-    <>
-      <div className="btn-wrapper">
-        <button className="blur  mx-2" onClick={onDecrement}>
-          <AiOutlineMinus />
-        </button>
-        <span className="border px-5 py-1">{count}</span>
-        <button className="blur mx-2" onClick={onIncrement}>
-          <AiOutlinePlus />
-        </button>
-      </div>
-    </>
+    <div className="btn-wrapper">
+      <button
+        className="btn btn-dark border-instagram mx-2"
+        onClick={onDecrement}
+      >
+        <AiOutlineMinus />
+      </button>
+      <span className="border-instagram px-5 py-1">{count}</span>
+      <button
+        className="btn btn-dark border-instagram mx-2"
+        onClick={onIncrement}
+      >
+        <AiOutlinePlus />
+      </button>
+    </div>
   );
 
   return {

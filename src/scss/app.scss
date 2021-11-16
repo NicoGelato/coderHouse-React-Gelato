@@ -39,7 +39,8 @@ $box-shadow: 0 0rem 1rem rgba(#c0c0c0, 0.4);
 
 // Color del body
 body {
-  background: #101415;
+  
+  background-image: url("https://images.pexels.com/photos/4957646/pexels-photo-4957646.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260");
 }
 
 // Fondo de Barra de Scroll
@@ -74,9 +75,9 @@ body::-webkit-scrollbar-thumb {
 
 /*Blur (Fondo de las cards con Efecto )*/
 .blur {
-  -webkit-backdrop-filter: blur(15px);
-  backdrop-filter: blur(15px);
-  background-color: rgba(255, 255, 255, 0.5);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  background-color: rgba(0, 0, 0, 0);
 }
 
 // Limite de espacio que puede ocupar un texto - 1, 2 y 3 lineas
@@ -120,10 +121,92 @@ body::-webkit-scrollbar-thumb {
 .sticky-top-2 {
   position: -webkit-sticky;
   position: sticky;
-  top: 80px;
+  top: 75px;
   z-index: 1020;
 }
 
-.bg-urban {
-  background-image: "https://images.pexels.com/photos/4957646/pexels-photo-4957646.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260";
+
+
+
+// El efecto del cart vacio
+.box{
+  margin: auto;
+  width: 500px;
+  height: 500px;
+  position: relative;
+  overflow: hidden;
+}
+
+.box span {
+  display: block;
+  font-size-adjust: 1000;
+  position: absolute;
+  -webkit-animation: moveX 2s linear 0s infinite alternate, moveY 3.4s linear 0s infinite alternate;
+  -moz-animation: moveX 2s linear 0s infinite alternate, moveY 3.4s linear 0s infinite alternate;
+  -o-animation: moveX 2s linear 0s infinite alternate, moveY 3.4s linear 0s infinite alternate;
+  animation: moveX 2s linear 0s infinite alternate, moveY 3.4s linear 0s infinite alternate;
+}
+
+@-webkit-keyframes moveX {
+  from { left: 0; } to { left: 450px; }
+}
+@-moz-keyframes moveX {
+  from { left: 0; } to { left: 450px; }
+}
+@-o-keyframes moveX {
+  from { left: 0; } to { left: 450px; }
+}
+@keyframes moveX {
+  from { left: 0; } to { left: 450px; }
+}
+
+@-webkit-keyframes moveY {
+  from { top: 0; } to { top: 300px; }
+}
+@-moz-keyframes moveY {
+  from { top: 0; } to { top: 300px; }
+}
+@-o-keyframes moveY {
+  from { top: 0; } to { top: 300px; }
+}
+@keyframes moveY {
+  from { top: 0; } to { top: 300px; }
+}
+
+// border gradient tipo instagram
+
+.border-instagram {
+
+    border: 1px solid transparent;
+    border-image: linear-gradient(
+    135deg,
+    #f09433,
+    #e6683c,
+    #e63c3c,
+    #dc2743,
+    #e1306c,
+    #c13584,
+    #833ab4,
+    #5851db,
+    #405de6
+  );
+    border-image-slice: 1;
+}
+
+.border-bottom-instagram {
+
+    border-bottom: 1px solid transparent;
+    border-image: linear-gradient(
+    135deg,
+    #f09433,
+    #e6683c,
+    #e63c3c,
+    #dc2743,
+    #e1306c,
+    #c13584,
+    #833ab4,
+    #5851db,
+    #405de6
+  );
+    border-image-slice: 1;
 }

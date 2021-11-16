@@ -5,52 +5,70 @@ const cartContext = createContext([]);
 const { Provider } = cartContext;
 
 const CartProvider = ({ children }) => {
-  const [items, setItems] = useState([]);
+  const [products, setProducts] = useState([]);
 
   const setAndStore = (list) => {
-    setItems(list);
-    localStorage.setItem("items", JSON.stringify(list));
+    setProducts(list);
+    localStorage.setItem("products", JSON.stringify(list));
   };
 
-  const addToCart = (id, title, quantity, price) => {
-    const existItem = items.find((item) => item.id === id);
+  const addToCart = (id, image, title, quantity, price) => {
+    const existProduct = products.find((product) => product.id === id);
 
-    if (!existItem) {
-      const item = [
-        ...items,
-        { id: id, title: title, quantity: quantity, price: price },
+    if (!existProduct) {
+      const product = [
+        ...products,
+        {
+          id: id,
+          image: image,
+          title: title,
+          quantity: quantity,
+          price: price,
+        },
       ];
-      setAndStore(item);
+      setAndStore(product);
     } else {
-      existItem.quantity += quantity;
-      setAndStore([...items]);
+      existProduct.quantity += quantity;
+      setAndStore([...products]);
     }
   };
 
-  
-  const removeItem = (id) => {
-    if (items.length > 0) {
-      const updateItems = items.filter((item) => {
-        return item.id !== id;
+  const removeProduct = (id) => {
+    if (products.length > 0) {
+      const updateProducts = products.filter((product) => {
+        return product.id !== id;
       });
-      setAndStore(updateItems);
+      setAndStore(updateProducts);
     }
   };
 
-  const getTotalItems = () => {
-    return items.reduce((totalCount, item) => {
-      return totalCount + item.quantity;
+  const getTotalProducts = () => {
+    return products.reduce((totalCount, product) => {
+      return totalCount + product.quantity;
     }, 0);
   };
 
+  const getTotalPrice = () => {
+    return products.reduce((totalCount, product) => {
+      return totalCount +( product.quantity * product.price);
+    }, 0);
+  }
+
   useEffect(() => {
-    const items = JSON.parse(localStorage.getItem("items") || "[]");
-    setItems(items);
+    const products = JSON.parse(localStorage.getItem("products") || "[]");
+    setProducts(products);
   }, []);
 
-
   return (
-    <Provider value={{ items, setItems, addToCart, removeItem, getTotalItems }}>
+    <Provider
+      value={{
+        products,
+        addToCart,
+        removeProduct,
+        getTotalProducts,
+        getTotalPrice,
+      }}
+    >
       {children}
     </Provider>
   );
