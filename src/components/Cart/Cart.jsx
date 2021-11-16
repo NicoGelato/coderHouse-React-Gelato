@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { useCartContext } from "../../context/CartContext";
 import { AiTwotoneDelete } from "react-icons/ai";
 
@@ -6,14 +7,19 @@ const Cart = () => {
 
   if (products.length === 0) {
     return (
-      <div className="">
+      <>
         <div class="box mt-5">
           <span class="fs-1">☠️</span>
           <p className="h2 text-white text-center">
             Todavía no agregaste nada al carrito
           </p>
         </div>
-      </div>
+        <Link to="/productos">
+          <button className="btn btn-dark border-instagram mt-1 m-2">
+            Seguir Comprando
+          </button>
+        </Link>
+      </>
     );
   } else {
     return (
