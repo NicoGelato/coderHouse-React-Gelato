@@ -14,9 +14,10 @@ const Cart = () => {
             Todavía no agregaste nada al carrito
           </p>
         </div>
-        <Link to="/productos">
-          <button className="btn btn-dark border-instagram mt-1 m-2">
-            Seguir Comprando
+
+        <Link className="position-absolute bottom-0 end-0" to="/productos">
+          <button className="btn btn-dark border-instagram m-2">
+            Ver qué puedo agregar
           </button>
         </Link>
       </>
