@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
 import { useCartContext } from "../../context/CartContext";
 import useItemCount from "../../hooks/useItemCount";
+
+
 
 const ItemDetail = ({ item }) => {
 
@@ -11,6 +14,30 @@ const ItemDetail = ({ item }) => {
     count: quantity,
     RenderItemCount,
   } = useItemCount()
+
+  const Msg = () => (
+    <>
+      <Link to="/Carrito">
+        <button className="btn btn-dark shadow-none">
+          Se agregó {quantity} "{title}" al carrito!
+        </button>
+      </Link>
+    </>
+  );
+
+  
+  const notify = () =>
+    toast(<Msg />, {
+      icon: "☠️",
+      className: "border-instagram",
+      theme: "dark",
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
   
   return (
     <>
@@ -82,7 +109,9 @@ const ItemDetail = ({ item }) => {
                 id="rojo"
                 autocomplete="off"
               />
-              <label className="btn btn-danger mx-1" for="rojo">RJ</label>
+              <label className="btn btn-danger mx-1" for="rojo">
+                RJ
+              </label>
 
               <input
                 type="radio"
@@ -91,7 +120,9 @@ const ItemDetail = ({ item }) => {
                 id="azul"
                 autocomplete="off"
               />
-              <label className="btn btn-primary mx-1" for="azul">AZ</label>
+              <label className="btn btn-primary mx-1" for="azul">
+                AZ
+              </label>
 
               <input
                 type="radio"
@@ -100,7 +131,9 @@ const ItemDetail = ({ item }) => {
                 id="blanco"
                 autocomplete="off"
               />
-              <label className="btn btn-light mx-1" for="blanco">BL</label>
+              <label className="btn btn-light mx-1" for="blanco">
+                BL
+              </label>
 
               <input
                 type="radio"
@@ -109,7 +142,9 @@ const ItemDetail = ({ item }) => {
                 id="negro"
                 autocomplete="off"
               />
-              <label className="btn btn-dark mx-1" for="negro">NG</label>
+              <label className="btn btn-dark mx-1" for="negro">
+                NG
+              </label>
 
               <input
                 type="radio"
@@ -118,7 +153,9 @@ const ItemDetail = ({ item }) => {
                 id="amarillo"
                 autocomplete="off"
               />
-              <label className="btn btn-warning mx-1" for="amarillo">AM</label>
+              <label className="btn btn-warning mx-1" for="amarillo">
+                AM
+              </label>
 
               <p className="h6 card-text">Precio x unidad: ${`${price}`}</p>
               <RenderItemCount />
@@ -128,11 +165,14 @@ const ItemDetail = ({ item }) => {
               <button
                 className="btn btn-dark border-instagram m-2"
                 onClick={() => {
+                  notify();
                   addToCart(id, image, title, quantity, price);
                 }}
               >
                 Agregar Producto
               </button>
+                <ToastContainer/>
+
             </div>
           </div>
         </div>

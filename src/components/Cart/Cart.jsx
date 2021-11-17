@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useCartContext } from "../../context/CartContext";
 import { AiTwotoneDelete } from "react-icons/ai";
 
+
 const Cart = () => {
   const { products, removeProduct, getTotalPrice } = useCartContext();
 
@@ -67,6 +68,8 @@ const Cart = () => {
           <button className="btn btn-dark border-instagram">COMPRAR</button>
         </section>
       </div>
+
+      
     );
   }
 };
