@@ -1,3 +1,6 @@
+import { IoIosUndo } from "react-icons/io";
+import { IoCartOutline } from "react-icons/io5";
+import { BsCartX } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import { useCartContext } from "../../context/CartContext";
@@ -8,18 +11,34 @@ import useItemCount from "../../hooks/useItemCount";
 const ItemDetail = ({ item }) => {
 
   const { title, image, description, price, id } = item;
-  const { addToCart, getTotalProducts } = useCartContext();
+  const { addToCart, undoAddToCart, getTotalProducts } = useCartContext();
   
   const {
     count: quantity,
+    setCount,
     RenderItemCount,
   } = useItemCount()
 
   const Msg = () => (
     <>
+      <span className="d-block m-1">
+        {" "}
+        {quantity === 1
+          ? `Se agregó  ${quantity}  "${title}" al carrito!`
+          : `Se agregaron  ${quantity}  "${title}" al carrito!`}
+      </span>
+      <button
+        className="btn btn-dark border-instagram m-2"
+        onClick={() => {
+          undoAddToCart(id, quantity);
+        }}
+      >
+        <BsCartX style={{ color: "white", fontSize: "0.9rem" }} /> Cancelar
+      </button>
       <Link to="/Carrito">
-        <button className="btn btn-dark shadow-none">
-          Se agregó {quantity} "{title}" al carrito!
+        <button className="btn btn-dark border-instagram m-2">
+          <IoCartOutline style={{ color: "white", fontSize: "1rem" }} /> Ir a
+          ver
         </button>
       </Link>
     </>
@@ -31,12 +50,10 @@ const ItemDetail = ({ item }) => {
       icon: "☠️",
       className: "border-instagram",
       theme: "dark",
-      position: "top-right",
+      position: "top-center",
       autoClose: 5000,
-      hideProgressBar: true,
+      hideProgressBar: false,
       pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
     });
   
   return (
@@ -44,7 +61,7 @@ const ItemDetail = ({ item }) => {
       <div className="card mb-3 blur text-white" style={{ maxwidth: "540px" }}>
         <div className="row g-0">
           <div className="col-md-4">
-            <small className="text-muted">*Imagen meramente ilustrativa</small>
+            <small className="text-muted">*Imagen ilustrativa</small>
             <img
               src={`${image}`}
               className="img-fluid rounded-start"
@@ -59,7 +76,7 @@ const ItemDetail = ({ item }) => {
               <p>Seleccionar Talle:</p>
               <input
                 type="radio"
-                className="btn-check "
+                className="btn-check"
                 name="talles"
                 id="S"
                 autocomplete="off"
@@ -157,22 +174,22 @@ const ItemDetail = ({ item }) => {
                 AM
               </label>
 
-              <p className="h6 card-text">Precio x unidad: ${`${price}`}</p>
               <RenderItemCount />
               <p className="h4 card-text my-2">
                 Precio total: ${`${price * quantity}`}
               </p>
+              <p className="h6 card-text">Precio x unidad: ${`${price}`}</p>
               <button
                 className="btn btn-dark border-instagram m-2"
                 onClick={() => {
                   notify();
                   addToCart(id, image, title, quantity, price);
+                  setCount(1);
                 }}
               >
                 Agregar Producto
               </button>
-                <ToastContainer/>
-
+              <ToastContainer />
             </div>
           </div>
         </div>
@@ -180,13 +197,14 @@ const ItemDetail = ({ item }) => {
       <section className="text-end">
         <Link to="/productos">
           <button className="btn btn-dark border-instagram mt-1 m-2">
-            Seguir Comprando
+            Volver <IoIosUndo />
           </button>
         </Link>
         {getTotalProducts() > 0 ? (
           <Link to="/carrito">
             <button className="btn btn-dark border-instagram m-2">
-              Terminar Compra
+              Terminar Compra{" "}
+              <IoCartOutline style={{ color: "white", fontSize: "1rem" }} />
             </button>
           </Link>
         ) : null}

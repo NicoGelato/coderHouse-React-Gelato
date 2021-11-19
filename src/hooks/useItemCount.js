@@ -36,6 +36,7 @@ const useItemCount = () => {
 
   return {
     count,
+    setCount,
     RenderItemCount,
   };
 };

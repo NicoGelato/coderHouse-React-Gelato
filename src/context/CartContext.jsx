@@ -12,6 +12,14 @@ const CartProvider = ({ children }) => {
     localStorage.setItem("products", JSON.stringify(list));
   };
 
+  
+  const removeProduct = (id) => {
+    const downProduct = products.filter((product) => {
+      return product.id !== id;
+    });
+    setAndStore(downProduct);
+  };
+
   const addToCart = (id, image, title, quantity, price) => {
     const existProduct = products.find((product) => product.id === id);
 
@@ -33,14 +41,16 @@ const CartProvider = ({ children }) => {
     }
   };
 
-  const removeProduct = (id) => {
-    if (products.length > 0) {
-      const updateProducts = products.filter((product) => {
-        return product.id !== id;
-      });
-      setAndStore(updateProducts);
+  const undoAddToCart = (id, quantity) => {
+    const existProduct = products.find((product) => product.id === id);
+    if (existProduct) {
+      existProduct.quantity -= quantity;
+      setAndStore([...products]);
+    } else {
+      removeProduct(id);
     }
-  };
+  }
+
 
   const getTotalProducts = () => {
     return products.reduce((totalCount, product) => {
@@ -67,6 +77,7 @@ const CartProvider = ({ children }) => {
         removeProduct,
         getTotalProducts,
         getTotalPrice,
+        undoAddToCart,
       }}
     >
       {children}
