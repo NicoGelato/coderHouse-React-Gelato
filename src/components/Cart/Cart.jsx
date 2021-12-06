@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import { useCartContext } from "../../context/CartContext";
 import { AiTwotoneDelete, AiOutlineHeart } from "react-icons/ai";
 
-
 const Cart = () => {
   const { products, removeProduct, getTotalPrice } = useCartContext();
 
@@ -13,7 +12,10 @@ const Cart = () => {
           <p className="h2 text-white text-center">
             Todavía no agregaste nada al carrito
           </p>
-          <Link className="position-absolute bottom-0 end-0" to="/productos">
+          <Link
+            className="position-absolute bottom-0 end-0"
+            to="/productos"
+          >
             <button className="btn btn-dark border-instagram m-2">
               Ver qué puedo agregar <AiOutlineHeart />
             </button>
@@ -37,13 +39,13 @@ const Cart = () => {
                 <th scope="col"></th>
               </tr>
             </thead>
-            {products.map(({ id, title, price, quantity, image }) => (
+            {products.map(({ id, title, price, quantity, image, categoryId }) => (
               <tbody key={id}>
                 <tr>
                   <th>
                     <img
                       src={`${image}`}
-                      alt="coso de la imagen de tu compra"
+                      alt={`${categoryId} : ${title}`}
                       style={{ height: "70px" }}
                     />
                   </th>
@@ -71,7 +73,8 @@ const Cart = () => {
 
         <Link className="position-absolute bottom-0 end-0" to="/productos">
           <button className="btn btn-dark border-instagram m-2">
-Seguir comprando          </button>
+            Seguir comprando{" "}
+          </button>
         </Link>
       </>
     );

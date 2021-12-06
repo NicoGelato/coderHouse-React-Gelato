@@ -1,17 +1,16 @@
 import { IoIosUndo } from "react-icons/io";
 import { IoCartOutline } from "react-icons/io5";
-import { BsCartX } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import { useCartContext } from "../../context/CartContext";
 import useItemCount from "../../hooks/useItemCount";
-
+import Msg from "../Widgets/Notifications";
 
 
 const ItemDetail = ({ item }) => {
 
   const { title, image, description, price, id } = item;
-  const { addToCart, undoAddToCart, getTotalProducts } = useCartContext();
+  const { addToCart, getTotalProducts } = useCartContext();
   
   const {
     count: quantity,
@@ -19,34 +18,8 @@ const ItemDetail = ({ item }) => {
     RenderItemCount,
   } = useItemCount()
 
-  const Msg = () => (
-    <>
-      <span className="d-block m-1">
-        {" "}
-        {quantity === 1
-          ? `Se agregó  ${quantity}  "${title}" al carrito!`
-          : `Se agregaron  ${quantity}  "${title}" al carrito!`}
-      </span>
-      <button
-        className="btn btn-dark border-instagram m-2"
-        onClick={() => {
-          undoAddToCart(id, quantity);
-        }}
-      >
-        <BsCartX style={{ color: "white", fontSize: "0.9rem" }} /> Cancelar
-      </button>
-      <Link to="/Carrito">
-        <button className="btn btn-dark border-instagram m-2">
-          <IoCartOutline style={{ color: "white", fontSize: "1rem" }} /> Ir a
-          ver
-        </button>
-      </Link>
-    </>
-  );
-
-  
   const notify = () =>
-    toast(<Msg />, {
+    toast(<Msg quantity={quantity} id={id} title={title}  />, {
       icon: "☠️",
       className: "border-instagram",
       theme: "dark",
@@ -55,7 +28,7 @@ const ItemDetail = ({ item }) => {
       hideProgressBar: false,
       pauseOnHover: true,
     });
-  
+
   return (
     <>
       <div className="card mb-3 blur text-white" style={{ maxwidth: "540px" }}>
@@ -189,7 +162,7 @@ const ItemDetail = ({ item }) => {
               >
                 Agregar Producto
               </button>
-              <ToastContainer />
+              <ToastContainer progressClassName="bg-secondary border-instagram" />
             </div>
           </div>
         </div>

@@ -6,7 +6,7 @@ const Loader = () => {
   useEffect(() => {
     const esperarTreintaSeg = setTimeout(() => {
       setTardoMucho(true);
-    }, 30000);
+    }, 10000);
     return () => {
       clearTimeout(esperarTreintaSeg);
     };

@@ -9,7 +9,7 @@ const BannerInstagram = () => {
       <div className="row">
         <a
           className="col-12 nav-link font-large fontBillabong text-center text-white bg-instagram word-spacing p-0"
-          href="https://www.instagram.com/indumentarialeeds"
+          href="https://www.instagram.com/indumentarialeeds/"
           rel="noreferrer"
           target="_blank"
         >

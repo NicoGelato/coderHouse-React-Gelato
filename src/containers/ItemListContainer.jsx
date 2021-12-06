@@ -30,7 +30,7 @@ useEffect(() => {
   setProductos(productList);
 }, [productList]);
 
-  if (!productos) {
+  if (!productos || productos.length === 0) {
     return <Loader />;
   } else {
     return (
