@@ -7,8 +7,9 @@ $font-family-sans-serif: "Roboto", sans-serif;
 // Shadows
 $box-shadow: 0 0rem 1rem rgba(#c0c0c0, 0.4);
 
+
 // Bootstrap 5
-@import "../../node_modules/bootstrap/css/bootstrap.min.css";
+@import "../../node_modules/bootstrap/scss/bootstrap.scss";
 
 // Tipografía Billabong - Instagram
 @font-face {
@@ -32,14 +33,10 @@ $box-shadow: 0 0rem 1rem rgba(#c0c0c0, 0.4);
   word-spacing: 0.25em;
 }
 
-// Link activo
-.active {
-  border-bottom: #c0c0c0;
-}
-
 // Color del body
 body {
-  background: #101415;
+  
+  background-image: url("https://images.pexels.com/photos/4957646/pexels-photo-4957646.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260");
 }
 
 // Fondo de Barra de Scroll
@@ -74,9 +71,9 @@ body::-webkit-scrollbar-thumb {
 
 /*Blur (Fondo de las cards con Efecto )*/
 .blur {
-  -webkit-backdrop-filter: blur(15px);
-  backdrop-filter: blur(15px);
-  background-color: rgba(255, 255, 255, 0.5);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  background-color: rgba(0, 0, 0, 0);
 }
 
 // Limite de espacio que puede ocupar un texto - 1, 2 y 3 lineas
@@ -120,6 +117,137 @@ body::-webkit-scrollbar-thumb {
 .sticky-top-2 {
   position: -webkit-sticky;
   position: sticky;
-  top: 80px;
+  top: 75px;
   z-index: 1020;
+}
+
+
+
+
+// El efecto del cart vacio
+.box{
+  margin: auto;
+position:absolute; z-index:1; width:100%; height:88%;
+  overflow: hidden;
+}
+
+.box span {
+  display: inline-block;
+  font-size-adjust: 1000;
+  position: absolute;
+  -webkit-animation: moveX 4s linear 0s infinite alternate, moveY 3.4s linear 0s infinite alternate;
+  -moz-animation: moveX 4s linear 0s infinite alternate, moveY 3.4s linear 0s infinite alternate;
+  -o-animation: moveX 4s linear 0s infinite alternate, moveY 3.4s linear 0s infinite alternate;
+  animation: moveX 4s linear 0s infinite alternate, moveY 3.4s linear 0s infinite alternate;
+}
+
+@-webkit-keyframes moveX {
+  from { left: 0; } to { left: 97%; }
+}
+@-moz-keyframes moveX {
+  from { left: 0; } to { left: 97%; }
+}
+@-o-keyframes moveX {
+  from { left: 0; } to { left: 97%; }
+}
+@keyframes moveX {
+  from { left: 0; } to { left: 97%; }
+}
+
+@-webkit-keyframes moveY {
+  from { top: 0; } to { top: 90%; }
+}
+@-moz-keyframes moveY {
+  from { top: 0; } to { top: 90%; }
+}
+@-o-keyframes moveY {
+  from { top: 0; } to { top: 90%; }
+}
+@keyframes moveY {
+  from { top: 0; } to { top: 90%; }
+}
+
+// border gradient tipo instagram
+
+.border-instagram {
+
+    border: 1px solid transparent;
+    border-image: linear-gradient(
+    135deg,
+    #f09433,
+    #e6683c,
+    #e63c3c,
+    #dc2743,
+    #e1306c,
+    #c13584,
+    #833ab4,
+    #5851db,
+    #405de6
+  );
+    border-image-slice: 1;
+}
+
+.border-bottom-instagram {
+
+    border-bottom: 1px solid transparent;
+    border-image: linear-gradient(
+    135deg,
+    #f09433,
+    #e6683c,
+    #e63c3c,
+    #dc2743,
+    #e1306c,
+    #c13584,
+    #833ab4,
+    #5851db,
+    #405de6
+  );
+    border-image-slice: 1;
+}
+
+/*Hover para los botones*/
+.hover-white :hover{
+    
+    border: 1px solid transparent;
+    border-image: linear-gradient(
+    135deg,
+    #f09433,
+    #e6683c,
+    #e63c3c,
+    #dc2743,
+    #e1306c,
+    #c13584,
+    #833ab4,
+    #5851db,
+    #405de6
+  );
+    border-image-slice: 1;
+
+  
+    background: white;
+    box-shadow: 10px whitesmoke;
+    color: black;
+}
+
+.btn-dark :hover{
+    
+    border: 1px solid transparent;
+    border-image: linear-gradient(
+    135deg,
+    #f09433,
+    #e6683c,
+    #e63c3c,
+    #dc2743,
+    #e1306c,
+    #c13584,
+    #833ab4,
+    #5851db,
+    #405de6
+  );
+    border-image-slice: 1;
+
+  
+    background: white;
+    box-shadow: 10px whitesmoke;
+    color: black;
 }

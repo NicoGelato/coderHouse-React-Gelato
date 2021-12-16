@@ -4,7 +4,7 @@ import CartWidget from "../Widgets/CartWidget";
 const NavBar = () => {
 
   return (
-    <nav className="navbar navbar-expand-sm bg-dark px-4 sticky-top shadow">
+    <nav className="navbar navbar-dark navbar-expand-sm bg-dark px-4 sticky-top">
       <NavLink className="navbar-brand m-1" to="/">
         <h1 className="text-white h3">☠️ Leeds</h1>
       </NavLink>
@@ -21,19 +21,17 @@ const NavBar = () => {
         <span className="navbar-toggler-icon"></span>
       </button>
 
-      
-
       <div className="collapse navbar-collapse" id="toggleMobileMenu">
         <ul className="navbar-nav ms-auto align-items-start">
           <NavLink
-            activeClassName="border-bottom"
+            activeClassName="border-bottom-instagram"
             className="nav-link text-white p-2 mx-2"
             to="/Productos"
           >
             Productos
           </NavLink>
           <NavLink
-            activeClassName="border-bottom"
+            activeClassName="border-bottom-instagram"
             className="nav-link text-white p-2 mx-2"
             to="/Carrito"
           >
