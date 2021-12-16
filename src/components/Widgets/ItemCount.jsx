@@ -1,11 +1,7 @@
 // Componete Padre: Item
 import { useState } from "react";
 
-// Iconos + y -
-import { AiOutlinePlus } from "react-icons/ai";
-
-import { AiOutlineMinus } from "react-icons/ai";
- 
+import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai"; 
 
 const ItemCount = ({onAdd}) => {
 
@@ -41,5 +37,3 @@ const [resultadoItemCount, setResultadoItemCount] = useState(0);
 };
 
 export default ItemCount;
-
-

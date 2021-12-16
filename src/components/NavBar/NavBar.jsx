@@ -1,8 +1,5 @@
-//Componente Padre : AppRoutes
-
 import { Link } from "react-router-dom";
 
-//Componentes hijos
 import LinksDelNavbar from "./LinksDelNavbar/LinksDelNavbar";
 
 const NavBar = () => {
