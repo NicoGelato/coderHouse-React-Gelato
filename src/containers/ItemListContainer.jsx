@@ -1,47 +1,71 @@
+import { useState, useEffect, useCallback } from "react";
+import { NavLink } from "react-router-dom";
+import { useParams } from "react-router";
+
 import ItemList from "../components/ItemList/ItemList";
 
-import { useItemContext } from "../context/ItemContext";
+import { getProductos } from "../utils/getProductos";
+import { getProductosByCategory } from "../utils/getProductosByCategory";
+import Loader from "../components/Loader/Loader";
 
 const ItemListContainer = () => {
+  const { categoryId } = useParams();
 
-  const context = useItemContext();
+  const [productos, setProductos] = useState(null);
 
-  const { productos } = context;
+  const getProductosData = async (categoryId) => {
+    const productosData = !categoryId
+      ? await getProductos()
+      : await getProductosByCategory(categoryId);
 
-  console.log(productos);
+    setProductos(productosData);
+  };
 
-  if (productos.length > 0) {
-    return (
-      <div className="container pt-3">
-        <ItemList productos={productos} />
-      </div>
-    );
+
+  const productList= useCallback(() => {
+      getProductosData(categoryId);
+    }, [categoryId])
+
+useEffect(() => {
+  setProductos(productList);
+}, [productList]);
+
+  if (!productos || productos.length === 0) {
+    return <Loader />;
   } else {
     return (
-      <div className="bg-dark p-2 pt-3 opacity-75">
-        <h1 className="text-center text-white h3">
-          ☠️ Cargando productos... ☠️
-        </h1>
-        <div className="d-flex justify-content-center m-5">
-          <div
-            className="spinner-grow spinner-grow-sm text-light mx-1"
-            role="status"
-          >
-            <span className="visually-hidden">Cargando...</span>
-          </div>
-          <div
-            className="spinner-grow spinner-grow-sm text-light mx-1"
-            role="status"
-          >
-            <span className="visually-hidden">Cargando...</span>
-          </div>
-          <div
-            className="spinner-grow spinner-grow-sm text-light mx-1"
-            role="status"
-          >
-            <span className="visually-hidden">Cargando...</span>
-          </div>
+      <div className="container mt-1">
+        <div className="navbar sticky-top-2  ">
+          <ul className="nav">
+            <li className="nav-item">
+              <NavLink
+                className="nav-link bg-dark text-white"
+                to="/Productos"
+              >
+                Todos los productos
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink
+                className="nav-link bg-dark text-white"
+                activeClassName="border-instagram"
+                to="/Productos/Categoria/Remeras"
+              >
+                Remeras{" "}
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink
+                className="nav-link bg-dark text-white"
+                activeClassName="border-instagram"
+                to="/Productos/Categoria/Buzos"
+              >
+                Buzos
+              </NavLink>
+            </li>
+          </ul>
         </div>
+        <ItemList productos={productos} />
       </div>
     );
   }

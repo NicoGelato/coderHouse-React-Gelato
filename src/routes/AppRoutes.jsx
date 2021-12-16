@@ -1,25 +1,44 @@
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
+<<<<<<< HEAD
 import NavBar from "../components/NavBar/NavBar";
 import WellcomePage from "../components/Wellcome/WellcomePage";
 import Cart from "../components/Cart/Cart";
+=======
+import { CartProvider } from "../context/CartContext";
+>>>>>>> 4f4f3d21275ed56911fcda9caa590811b07ae0bf
 
-// Containers
-import ItemListContainer from "../containers/ItemListContainer"
+import NavBar from "../components/NavBar/NavBar";
+import ItemListContainer from "../containers/ItemListContainer";
 import ItemDetailContainer from "../containers/ItemDetailContainer";
+import Cart from "../components/Cart/Cart"
+import WellcomePage from "../components/Wellcome/WellcomePage";
 
 const AppRoutes = () => {
-    return (
-      <BrowserRouter>
-        <NavBar />
+  return (
+    <BrowserRouter>
+      <CartProvider>
+      <NavBar />
         <Switch>
           <Route path="/Productos" exact component={ItemListContainer} />
+<<<<<<< HEAD
           <Route path="/productos/:id" exact component={ItemDetailContainer} />
           <Route path="/carrito" exact component={Cart} />
           <Route path="/" exact component={WellcomePage} />
+=======
+          <Route
+            path="/Productos/Categoria/:categoryId"
+            exact
+            component={ItemListContainer}
+          />
+>>>>>>> 4f4f3d21275ed56911fcda9caa590811b07ae0bf
         </Switch>
-      </BrowserRouter>
-    );
+        <Route path="/Productos/:id" exact component={ItemDetailContainer} />
+        <Route path="/Carrito" exact component={Cart} />
+      </CartProvider>
+      <Route path="/" exact component={WellcomePage} />
+    </BrowserRouter>
+  );
 };
 
 export default AppRoutes;

@@ -1,7 +1,0 @@
-Consultas para hacer:
-
-1. Como fitrar la consulta a FireBase por id
-
-2. El uso de useContext, y la data que viene de FireBase
-
-3. El uso de useMemo 

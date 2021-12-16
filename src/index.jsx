@@ -1,9 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
-//Bootstrap
-import "bootstrap/dist/js/bootstrap";
-//Sass
-import "./sass/app.scss";
+import "./scss/app.scss";
+import "./scss/css/ReactToastify.css";
+
 
 ReactDOM.render(<App />, document.getElementById("root"));

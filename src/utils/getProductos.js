@@ -5,8 +5,7 @@ import { db } from "../firebase/firebaseConfig";
 
 export const getProductos = async () => {
   try {
-    const productosColection = query(collection(db, "productos"));
-    const productosSnapshot = await getDocs(productosColection);
+    const productosSnapshot = await getDocs(query(collection(db, "productos")));
 
     const productosList = productosSnapshot.docs.map((documento) => {
       return {

@@ -1,16 +1,19 @@
+<<<<<<< HEAD
 import { Link } from "react-router-dom";
 
 import LinksDelNavbar from "./LinksDelNavbar/LinksDelNavbar";
+=======
+import { NavLink } from "react-router-dom";
+import CartWidget from "../Widgets/CartWidget";
+>>>>>>> 4f4f3d21275ed56911fcda9caa590811b07ae0bf
 
 const NavBar = () => {
+
   return (
-    <nav
-      className="navbar navbar-expand-sm bg-dark px-4 sticky-top shadow"
-      style={{ opacity: "0.9" }}
-    >
-      <Link className="navbar-brand m-1" to="/">
+    <nav className="navbar navbar-dark navbar-expand-sm bg-dark px-4 sticky-top">
+      <NavLink className="navbar-brand m-1" to="/">
         <h1 className="text-white h3">☠️ Leeds</h1>
-      </Link>
+      </NavLink>
 
       <button
         className="navbar-toggler d-sm-block d-md-none shadow-none border-0"
@@ -24,9 +27,24 @@ const NavBar = () => {
         <span className="navbar-toggler-icon"></span>
       </button>
 
-      <LinksDelNavbar links={["Info", "Contacto", "Productos"]} />
-
-      
+      <div className="collapse navbar-collapse" id="toggleMobileMenu">
+        <ul className="navbar-nav ms-auto align-items-start">
+          <NavLink
+            activeClassName="border-bottom-instagram"
+            className="nav-link text-white p-2 mx-2"
+            to="/Productos"
+          >
+            Productos
+          </NavLink>
+          <NavLink
+            activeClassName="border-bottom-instagram"
+            className="nav-link text-white p-2 mx-2"
+            to="/Carrito"
+          >
+            <CartWidget />
+          </NavLink>
+        </ul>
+      </div>
     </nav>
   );
 };
