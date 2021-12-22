@@ -1,11 +1,5 @@
-<<<<<<< HEAD
-import { Link } from "react-router-dom";
-
-import LinksDelNavbar from "./LinksDelNavbar/LinksDelNavbar";
-=======
 import { NavLink } from "react-router-dom";
 import CartWidget from "../Widgets/CartWidget";
->>>>>>> 4f4f3d21275ed56911fcda9caa590811b07ae0bf
 
 const NavBar = () => {
 

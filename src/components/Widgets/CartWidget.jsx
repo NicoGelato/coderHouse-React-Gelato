@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-import { IoCartOutline } from "react-icons/io5";
-
-const CartWidget = () => {
-=======
 
 import { useCartContext } from "../../context/CartContext";
 import { IoCartOutline } from "react-icons/io5";
@@ -10,14 +5,9 @@ import { IoCartOutline } from "react-icons/io5";
 const CartWidget = () => {
   const { getTotalProducts } = useCartContext();
 
->>>>>>> 4f4f3d21275ed56911fcda9caa590811b07ae0bf
   return (
     <div className="position-relative" style={{ alignItems: "center" }}>
       {" "}
-<<<<<<< HEAD
-      <IoCartOutline style={{ color: "white", fontSize: "1.5rem" }} /> 0
-    </span>
-=======
       <IoCartOutline style={{ color: "white", fontSize: "1.7rem" }} />{" "}
       {getTotalProducts() === 0 ? (
         <span
@@ -37,7 +27,6 @@ const CartWidget = () => {
         </span>
       )}
     </div>
->>>>>>> 4f4f3d21275ed56911fcda9caa590811b07ae0bf
   );
 };
 

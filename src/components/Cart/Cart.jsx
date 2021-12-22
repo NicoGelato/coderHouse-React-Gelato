@@ -1,12 +1,16 @@
-<<<<<<< HEAD
-=======
 import { Link } from "react-router-dom";
 import { useCartContext } from "../../context/CartContext";
 import { AiTwotoneDelete, AiOutlineHeart } from "react-icons/ai";
+import useItemCount from "../../hooks/useItemCount";
 
->>>>>>> 4f4f3d21275ed56911fcda9caa590811b07ae0bf
+
 const Cart = () => {
   const { products, removeProduct, getTotalPrice } = useCartContext();
+
+  
+  const { RenderItemCount } = useItemCount();
+
+
 
   if (products.length === 0) {
     return (
@@ -23,14 +27,14 @@ const Cart = () => {
               Ver qué puedo agregar <AiOutlineHeart />
             </button>
           </Link>
-          <span class="fs-1">☠️</span>
+          <span className="fs-1">☠️</span>
         </div>
       </>
     );
   } else {
     return (
       <>
-        <div className="container mt-5 blur">
+        <div className="table-responsive mt-5 blur ">
           <table className="table text-white">
             <thead>
               <tr>
@@ -42,31 +46,35 @@ const Cart = () => {
                 <th scope="col"></th>
               </tr>
             </thead>
-            {products.map(({ id, title, price, quantity, image, categoryId }) => (
-              <tbody key={id}>
-                <tr>
-                  <th>
-                    <img
-                      src={`${image}`}
-                      alt={`${categoryId} : ${title}`}
-                      style={{ height: "70px" }}
-                    />
-                  </th>
-                  <th scope="row">{title}</th>
-
-                  <td>$ {price}</td>
-                  <td>{quantity}</td>
-                  <td>$ {quantity * price}</td>
-                  <td>
-                    <AiTwotoneDelete
-                      type="button"
-                      onClick={() => removeProduct(id)}
-                      style={{ color: "white", fontSize: "1.5rem" }}
-                    />
-                  </td>
-                </tr>
-              </tbody>
-            ))}
+            {products.map(
+              ({ id, title, price, quantity, image, categoryId }) => (
+                <tbody key={id}>
+                  <tr>
+                    <th>
+                      <img
+                        src={`${image}`}
+                        alt={`${categoryId} : ${title}`}
+                        style={{ height: "70px" }}
+                      />
+                    </th>
+                    <th scope="row">{title}</th>
+                    <td>$ {price}</td>
+                    <td>
+                      <RenderItemCount />
+                      {/*quantity*/}
+                    </td>
+                    <td>$ {quantity * price}</td>
+                    <td>
+                      <AiTwotoneDelete
+                        type="button"
+                        onClick={() => removeProduct(id)}
+                        style={{ color: "white", fontSize: "1.5rem" }}
+                      />
+                    </td>
+                  </tr>
+                </tbody>
+              )
+            )}
           </table>
           <section className="text-end">
             <p className="h5 text-end text-white">TOTAL: ${getTotalPrice()}</p>

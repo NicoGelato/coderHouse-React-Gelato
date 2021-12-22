@@ -16,15 +16,12 @@ const AppRoutes = () => {
         <Switch>
           <Route path="/Productos" exact component={ItemListContainer} />
           <Route path="/productos/:id" exact component={ItemDetailContainer} />
-          <Route path="/carrito" exact component={Cart} />
-          <Route path="/" exact component={WellcomePage} />
           <Route
             path="/Productos/Categoria/:categoryId"
             exact
             component={ItemListContainer}
           />
         </Switch>
-        <Route path="/Productos/:id" exact component={ItemDetailContainer} />
         <Route path="/Carrito" exact component={Cart} />
       </CartProvider>
       <Route path="/" exact component={WellcomePage} />
