@@ -4,6 +4,7 @@ import { AiOutlinePlus } from "react-icons/ai";
 import { AiOutlineMinus } from "react-icons/ai";
 
 const useItemCount = () => {
+
   const [count, setCount] = useState(1);
 
   const onDecrement = () => {

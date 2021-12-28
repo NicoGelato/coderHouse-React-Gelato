@@ -6,11 +6,8 @@ import useItemCount from "../../hooks/useItemCount";
 
 const Cart = () => {
   const { products, removeProduct, getTotalPrice } = useCartContext();
-
   
-  const { RenderItemCount } = useItemCount();
-
-
+  const {  RenderItemCount } = useItemCount();
 
   if (products.length === 0) {
     return (
@@ -46,8 +43,9 @@ const Cart = () => {
                 <th scope="col"></th>
               </tr>
             </thead>
-            {products.map(
-              ({ id, title, price, quantity, image, categoryId }) => (
+            {products.map(({ id, title, price, quantity, image, categoryId }) =>
+            
+               (
                 <tbody key={id}>
                   <tr>
                     <th>

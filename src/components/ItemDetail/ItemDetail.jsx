@@ -16,7 +16,7 @@ const ItemDetail = ({ item }) => {
     count: quantity,
     setCount,
     RenderItemCount,
-  } = useItemCount()
+  } = useItemCount();
 
   const notify = () =>
     toast(<Msg quantity={quantity} id={id} title={title}  />, {
