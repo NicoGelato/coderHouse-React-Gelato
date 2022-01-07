@@ -5,7 +5,7 @@ const NavBar = () => {
 
   return (
     <nav className="navbar navbar-dark navbar-expand-sm bg-dark px-4 sticky-top">
-      <NavLink className="navbar-brand m-1" to="/">
+      <NavLink className="navbar-brand " to="/">
         <h1 className="text-white h3">☠️ Leeds</h1>
       </NavLink>
 
@@ -32,7 +32,7 @@ const NavBar = () => {
           </NavLink>
           <NavLink
             activeClassName="border-bottom-instagram"
-            className="nav-link text-white p-2 mx-2"
+            className="nav-link text-white p-2 mx-2 mt-2 mt-sm-0"
             to="/Carrito"
           >
             <CartWidget />

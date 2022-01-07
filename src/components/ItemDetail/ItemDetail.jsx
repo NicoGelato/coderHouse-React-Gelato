@@ -21,7 +21,7 @@ const ItemDetail = ({ item }) => {
   const notify = () =>
     toast(<Msg quantity={quantity} id={id} title={title}  />, {
       icon: "☠️",
-      className: "border-instagram",
+      
       theme: "dark",
       position: "top-center",
       autoClose: 5000,
@@ -29,16 +29,28 @@ const ItemDetail = ({ item }) => {
       pauseOnHover: true,
     });
 
+  // Tanto el talle disponible como los colores deberian venir de una base de datos
+  
+  const talles = ['S', 'M', 'L', 'XL'];
+
+  const colores = [
+    { name: 'RJ', colorClassName: 'btn btn-danger mx-1' },
+    { name: 'AZ', colorClassName: 'btn btn-primary mx-1' },
+    { name: 'BL', colorClassName: 'btn btn-light mx-1' },
+    { name: 'NG', colorClassName: 'btn btn-dark mx-1' },
+    { name: 'AM', colorClassName: 'btn btn-warning mx-1' },
+  ]
+
   return (
     <>
       <div className="card mb-3 blur text-white" style={{ maxwidth: "540px" }}>
         <div className="row g-0">
           <div className="col-md-4">
-            <small className="text-muted">*Imagen ilustrativa</small>
+            <small>*Imagen ilustrativa</small>
             <img
               src={`${image}`}
               className="img-fluid rounded-start"
-              alt={`${title}`}
+              alt={`Nombre: ${title} Descripción:${description}`}
             />
           </div>
           <div className="col-md-8">
@@ -47,107 +59,55 @@ const ItemDetail = ({ item }) => {
               <p className="card-text">{`${description}`}</p>
 
               <p>Seleccionar Talle:</p>
-              <input
-                type="radio"
-                className="btn-check"
-                name="talles"
-                id="S"
-                autocomplete="off"
-              />
-              <label className="btn btn-secondary mx-1" for="S">
-                S
-              </label>
 
-              <input
+              {
+                talles.map((e,i)=> 
+                ( 
+             <div className="d-inline" key={i}>
+             
+             <input
                 type="radio"
                 className="btn-check"
                 name="talles"
-                id="M"
+                id={e}
                 autocomplete="off"
+                      
               />
-              <label className="btn btn-secondary mx-1" for="M">
-                M
+              <label className="btn btn-secondary mx-1" for={e}>
+                {e}
               </label>
-
-              <input
-                type="radio"
-                className="btn-check"
-                name="talles"
-                id="L"
-                autocomplete="off"
-              />
-              <label className="btn btn-secondary mx-1" for="L">
-                L
-              </label>
-
-              <input
-                type="radio"
-                className="btn-check"
-                name="talles"
-                id="XL"
-                autocomplete="off"
-              />
-              <label className="btn btn-secondary mx-1" for="XL">
-                XL
-              </label>
+             </div>
+                )
+             
+                )
+              }
               <p>Seleccionar Color de la prenda:</p>
-
+              {
+                colores.map(({name, colorClassName}, i) =>
+                             (<div className="d-inline" key={i}>
+             
               <input
                 type="radio"
                 className="btn-check"
                 name="colores"
-                id="rojo"
+                id={name}
                 autocomplete="off"
               />
-              <label className="btn btn-danger mx-1" for="rojo">
-                RJ
+              <label className={colorClassName} for={name}>
+                {name}
               </label>
 
-              <input
-                type="radio"
-                className="btn-check"
-                name="colores"
-                id="azul"
-                autocomplete="off"
-              />
-              <label className="btn btn-primary mx-1" for="azul">
-                AZ
-              </label>
 
-              <input
-                type="radio"
-                className="btn-check"
-                name="colores"
-                id="blanco"
-                autocomplete="off"
-              />
-              <label className="btn btn-light mx-1" for="blanco">
-                BL
-              </label>
+                  
 
-              <input
-                type="radio"
-                className="btn-check"
-                name="colores"
-                id="negro"
-                autocomplete="off"
-              />
-              <label className="btn btn-dark mx-1" for="negro">
-                NG
-              </label>
+             </div>)
+                
+                )
+}
 
-              <input
-                type="radio"
-                className="btn-check"
-                name="colores"
-                id="amarillo"
-                autocomplete="off"
-              />
-              <label className="btn btn-warning mx-1" for="amarillo">
-                AM
-              </label>
+             
 
-              <RenderItemCount />
+              <RenderItemCount className="mt-5"/>
               <p className="h4 card-text my-2">
                 Precio total: ${`${price * quantity}`}
               </p>

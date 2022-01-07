@@ -1,18 +1,15 @@
 import { Link } from "react-router-dom";
 import { useCartContext } from "../../context/CartContext";
 import { AiTwotoneDelete, AiOutlineHeart } from "react-icons/ai";
-import useItemCount from "../../hooks/useItemCount";
 
 
 const Cart = () => {
   const { products, removeProduct, getTotalPrice } = useCartContext();
-  
-  const {  RenderItemCount } = useItemCount();
 
   if (products.length === 0) {
     return (
       <>
-        <div class="box pt-5">
+        <div className="box pt-5">
           <p className="h2 text-white text-center">
             Todavía no agregaste nada al carrito
           </p>
@@ -30,8 +27,8 @@ const Cart = () => {
     );
   } else {
     return (
-      <>
-        <div className="table-responsive mt-5 blur ">
+      <article className="container">
+        <div className="table-responsive mt-5 p-2 blur ">
           <table className="table text-white">
             <thead>
               <tr>
@@ -43,9 +40,8 @@ const Cart = () => {
                 <th scope="col"></th>
               </tr>
             </thead>
-            {products.map(({ id, title, price, quantity, image, categoryId }) =>
-            
-               (
+            {products.map(
+              ({ id, title, price, quantity, image, categoryId }) => (
                 <tbody key={id}>
                   <tr>
                     <th>
@@ -58,8 +54,7 @@ const Cart = () => {
                     <th scope="row">{title}</th>
                     <td>$ {price}</td>
                     <td>
-                      <RenderItemCount />
-                      {/*quantity*/}
+                      {quantity}
                     </td>
                     <td>$ {quantity * price}</td>
                     <td>
@@ -85,7 +80,7 @@ const Cart = () => {
             Seguir comprando{" "}
           </button>
         </Link>
-      </>
+      </article>
     );
   }
 };
