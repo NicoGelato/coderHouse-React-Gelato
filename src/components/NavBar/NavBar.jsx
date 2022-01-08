@@ -26,14 +26,14 @@ const NavBar = () => {
           <NavLink
             activeClassName="border-bottom-instagram"
             className="nav-link text-white p-2 mx-2"
-            to="/Productos"
+            to="/productos"
           >
             Productos
           </NavLink>
           <NavLink
             activeClassName="border-bottom-instagram"
             className="nav-link text-white p-2 mx-2 mt-2 mt-sm-0"
-            to="/Carrito"
+            to="/carrito"
           >
             <CartWidget />
           </NavLink>

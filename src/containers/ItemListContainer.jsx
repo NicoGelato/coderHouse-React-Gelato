@@ -2,33 +2,39 @@ import { useState, useEffect, useCallback } from "react";
 import { NavLink } from "react-router-dom";
 import { useParams } from "react-router";
 
-import ItemList from "../components/ItemList/ItemList";
-
 import { getProductos } from "../utils/getProductos";
 import { getProductosByCategory } from "../utils/getProductosByCategory";
+import { firstLetterUpperCase } from "../utils/firstLetterUpperCase"
+
+import ItemList from "../components/ItemList/ItemList";
 import Loader from "../components/Loader/Loader";
 
 const ItemListContainer = () => {
+  
+  const [productos, setProductos] = useState(null);
+  
   const { categoryId } = useParams();
 
-  const [productos, setProductos] = useState(null);
 
   const getProductosData = async (categoryId) => {
-    const productosData = !categoryId
-      ? await getProductos()
-      : await getProductosByCategory(categoryId);
-
-    setProductos(productosData);
+    try {
+      const productosData = !categoryId
+        ? await getProductos()
+        : await getProductosByCategory(firstLetterUpperCase(categoryId));
+  
+      setProductos(productosData);
+    } catch (error) {
+      console.log(error)
+    }
   };
 
-
-  const productList= useCallback(() => {
+  const productList = useCallback(() => {
       getProductosData(categoryId);
     }, [categoryId])
 
-useEffect(() => {
-  setProductos(productList);
-}, [productList]);
+  useEffect(() => {
+    setProductos(productList);
+  }, [productList]);
 
   if (!productos || productos.length === 0) {
     return <Loader />;
@@ -40,7 +46,7 @@ useEffect(() => {
             <li className="nav-item">
               <NavLink
                 className="nav-link bg-dark text-white"
-                to="/Productos"
+                to="/productos"
               >
                 Todos los productos
               </NavLink>
@@ -49,7 +55,7 @@ useEffect(() => {
               <NavLink
                 className="nav-link bg-dark text-white"
                 activeClassName="border-instagram"
-                to="/Productos/Categoria/Remeras"
+                to="/productos/categoria/remeras"
               >
                 Remeras{" "}
               </NavLink>
@@ -58,7 +64,7 @@ useEffect(() => {
               <NavLink
                 className="nav-link bg-dark text-white"
                 activeClassName="border-instagram"
-                to="/Productos/Categoria/Buzos"
+                to="/productos/categoria/buzos"
               >
                 Buzos
               </NavLink>

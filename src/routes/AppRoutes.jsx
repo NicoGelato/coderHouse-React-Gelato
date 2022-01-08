@@ -6,25 +6,30 @@ import NavBar from "../components/NavBar/NavBar";
 import ItemListContainer from "../containers/ItemListContainer";
 import ItemDetailContainer from "../containers/ItemDetailContainer";
 import Cart from "../components/Cart/Cart"
-import WellcomePage from "../components/Wellcome/WellcomePage";
+import BannerInstragram from "../components/Widgets/BannerInstagram";
+import Carrousel from "../components/Carrousel/Carrousel";
+import WhatsappWidget from "../components/Widgets/WhatsappWidget/WhatsappWidget";
+
 
 const AppRoutes = () => {
   return (
     <BrowserRouter>
+      <BannerInstragram />
       <CartProvider>
       <NavBar />
         <Switch>
-          <Route path="/Productos" exact component={ItemListContainer} />
+          <Route path="/productos" exact component={ItemListContainer} />
           <Route path="/productos/:id" exact component={ItemDetailContainer} />
           <Route
-            path="/Productos/Categoria/:categoryId"
+            path="/productos/categoria/:categoryId"
             exact
             component={ItemListContainer}
           />
         </Switch>
-        <Route path="/Carrito" exact component={Cart} />
+        <Route path="/carrito" exact component={Cart} />
       </CartProvider>
-      <Route path="/" exact component={WellcomePage} />
+        <Route path="/" exact component={Carrousel} />
+      <WhatsappWidget />
     </BrowserRouter>
   );
 };

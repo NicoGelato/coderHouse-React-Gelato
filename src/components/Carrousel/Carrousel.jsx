@@ -2,6 +2,8 @@ import imagen1 from "./imagenes_carousel/carousel_1.jpg"
 import imagen2 from "./imagenes_carousel/carousel_2.jpg"
 import imagen3 from "./imagenes_carousel/carousel_3.jpg"
 
+const imagenesCarousel = [imagen1, imagen2, imagen3];
+
 const Carrousel = () => {
     return (
       <div
@@ -10,26 +12,29 @@ const Carrousel = () => {
         data-bs-ride="carousel"
       >
         <div className="carousel-indicators">
-          <button
-            type="button"
-            data-bs-target="#carouselExampleIndicators"
-            data-bs-slide-to="0"
-            className="active"
-            aria-current="true"
-            aria-label="Slide 1"
-          ></button>
-          <button
-            type="button"
-            data-bs-target="#carouselExampleIndicators"
-            data-bs-slide-to="1"
-            aria-label="Slide 2"
-          ></button>
-          <button
-            type="button"
-            data-bs-target="#carouselExampleIndicators"
-            data-bs-slide-to="2"
-            aria-label="Slide 3"
-          ></button>
+
+          {
+            imagenesCarousel.map((e, i) => {
+              
+              let classNameActive = i === 0 ? "active" : "";
+              
+              return (
+
+              <button
+                type="button"
+                data-bs-target="#carouselExampleIndicators"
+                  data-bs-slide-to={`${i}`}
+                  className={classNameActive}
+                aria-current="true"
+                aria-label={`Slide ${i+1}`}
+                key={`${i}`}
+              ></button>
+
+
+              )    }
+            )
+
+          }   
         </div>
         <div className="carousel-inner">
           <div className="carousel-item active">
@@ -37,7 +42,7 @@ const Carrousel = () => {
 
             <div className="card-img-overlay container m-5 p-5">
               <span className="h2 bg-dark text-white m-3">
-                Bienvenid@s wachines 🤙
+                Bienvenid@s 🤙
               </span>{" "}
               <br />
               <b className="h3 bg-warning m-5"> Que acelga? 🥑</b>

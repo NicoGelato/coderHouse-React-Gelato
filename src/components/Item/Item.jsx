@@ -34,7 +34,7 @@ const Item = ({ price, title, description, image, categoryId, id }) => {
                     <h3 className="text-center border-1">$ {`${price}`}</h3>
                     <Link
                       className="btn btn-dark w-auto text-center border-instagram"
-                      to={`/Productos/${id}`}
+                      to={`/productos/${id}`}
                     >
                       Ver más detalles
                     </Link>
