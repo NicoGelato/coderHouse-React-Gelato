@@ -5,7 +5,7 @@ import "./cart.css"
 
 const Cart = () => {
 
-  const { products, removeProduct, getTotalPrice } = useCartContext();
+  const { products, removeProduct, getTotalPrice, getTotalProducts } = useCartContext();
 
   console.log(products);
 
@@ -31,16 +31,16 @@ const Cart = () => {
   } else {
     return (
       <article className="container">
-        <div className="table-responsive mt-5 p-2 blur ">
+        <div className="table mt-5 p-2 blur ">
           <table className="table text-white">
             <thead>
               <tr>
                 {/* <th scope="col">Imagen</th> */}
-                <th scope="col">Nombre del producto</th>
+                <th scope="col">Productos ({getTotalProducts()})</th>
                 {/* <th scope="col">Precio unitario</th> */}
-                <th scope="col">Cantidad a comprar</th>
+                {/* <th scope="col">Cantidad a comprar</th>
                 <th scope="col">Total por producto</th>
-                <th scope="col"></th>
+                <th scope="col"></th> */}
               </tr>
             </thead>
             {products.map(
@@ -53,11 +53,11 @@ const Cart = () => {
                     <tr>
                       <th scope="row">
                         <section
-                          className="card bg-transparent mb-3"
+                          className="card bg-transparent border-0 mb-3"
                           style={{ maxwidth: "540px" }}
                         >
                           <div className="row g-0">
-                            <div className="col-md-4">
+                            <div className="col-md-2">
                               <div className="containerImg">
                                 <input type="checkbox" id={i} />
                                 <label htmlFor={i}>
@@ -69,17 +69,27 @@ const Cart = () => {
                                 </label>
                               </div>
                             </div>
-                            <div className="col-md-8">
+                            <div className="col-md-9">
                               <div className="card-body">
-                                <h5 className="card-title">{title}</h5>
+                                <h4 className="card-title">{title}</h4>
                                 <p className="card-text">{description}</p>
+                                <p className="card-text">Cantidad: {quantity}</p>
                                 <p className="card-text">
                                   <small >
-                                    Precio unitario: {price}
+                                    Precio unitario:$ {price}
                                   </small>
                                 </p>
+                                <p className="card-text">Total: ${quantity * price}</p>
+
                               </div>
                             </div>
+                            <div className="col-md-1 trash"><AiTwotoneDelete
+    className=""
+                          title="No comprar este producto"
+                          type="button"
+                          onClick={() => removeProduct(id)}
+                          style={{ color: "white", fontSize: "1.5rem" }}
+                        /></div>
                           </div>
                         </section>
                         {/* 
@@ -96,23 +106,23 @@ const Cart = () => {
                       <th scope="row">{title}</th>
                       <th scope="row">$ {price} */}
                       </th>
-                      <th scope="row">{quantity}</th>
-                      <th scope="row">$ {quantity * price}</th>
-                      <th scope="row">
+                      {/* <th scope="row">{quantity}</th>
+                      <th scope="row">$ {quantity * price}</th> */}
+                      {/* <th scope="row">
                         <AiTwotoneDelete
                           title="No comprar este producto"
                           type="button"
                           onClick={() => removeProduct(id)}
                           style={{ color: "white", fontSize: "1.5rem" }}
                         />
-                      </th>
+                      </th> */}
                     </tr>
                   </tbody>
                 );
               }
             )}
           </table>
-          <section className="text-end">
+          <section className="text-end border-0">
             <p className="h5 text-end text-white">TOTAL: ${getTotalPrice()}</p>
             <button className="btn btn-dark border-instagram">COMPRAR</button>
           </section>
