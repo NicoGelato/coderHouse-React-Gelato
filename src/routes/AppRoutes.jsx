@@ -6,7 +6,7 @@ import NavBar from "../components/NavBar/NavBar";
 import ItemListContainer from "../containers/ItemListContainer";
 import ItemDetailContainer from "../containers/ItemDetailContainer";
 import Cart from "../components/Cart/Cart"
-import BannerInstragram from "../components/Widgets/BannerInstagram";
+import BannerInstagram from "../components/Widgets/BannerInstagram/BannerInstagram";
 import Carrousel from "../components/Carrousel/Carrousel";
 import WhatsappWidget from "../components/Widgets/WhatsappWidget/WhatsappWidget";
 
@@ -14,7 +14,7 @@ import WhatsappWidget from "../components/Widgets/WhatsappWidget/WhatsappWidget"
 const AppRoutes = () => {
   return (
     <BrowserRouter>
-      <BannerInstragram />
+      <BannerInstagram />
       <CartProvider>
       <NavBar />
         <Switch>

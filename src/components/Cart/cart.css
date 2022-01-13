@@ -1,0 +1,56 @@
+.containerImg input[type = checkbox] {
+      display: none;
+   }
+
+   .containerImg img {
+
+      /* height: 70px; */
+      transition: transform 0.25s ease;
+      cursor: zoom-in ;
+      -webkit-transition: transform 0.25s ease;
+      -moz-transition: transform 0.25s ease;
+      -ms-transition: transform 0.25s ease;
+      -o-transition: transform 0.25s ease;
+}
+
+    .containerImg :checked~label > img {
+
+   transform: scale(3);
+   cursor: zoom-out;
+   -webkit-transform: scale(3);
+   -moz-transform: scale(3);
+   -ms-transform: scale(3);
+   -o-transform: scale(3);
+}
+
+
+/* 
+.zoomImg{
+    height: 70px;
+};
+
+.zoomImg:enabled{
+    cursor: -webkit-zoom-in;
+    height: 70px;
+    width: 70px;
+    transform: scale(1.5);
+    -webkit-transform: scale(1.5);
+    -moz-transform: scale(1.5);
+    -ms-transform: scale(1.5);
+    -o-transform: scale(1.5);
+};
+
+
+
+.zoomImg {
+    height: 70px;
+    width: 70px;
+    cursor: zoom-in;
+
+};
+
+input[type=checkbox]:checked ~ label > img {
+    height: 170px;
+    width: 170px;
+  cursor: zoom-out;
+}; */

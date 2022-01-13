@@ -7,9 +7,9 @@ import useItemCount from "../../hooks/useItemCount";
 import Msg from "../Widgets/Notifications";
 
 
-const ItemDetail = ({ item }) => {
+const ItemDetail = ({ product }) => {
 
-  const { title, image, description, price, id } = item;
+  const { title, image, description, price, id } = product;
   const { addToCart, getTotalProducts } = useCartContext();
   
   const {
@@ -21,7 +21,6 @@ const ItemDetail = ({ item }) => {
   const notify = () =>
     toast(<Msg quantity={quantity} id={id} title={title}  />, {
       icon: "☠️",
-      
       theme: "dark",
       position: "top-center",
       autoClose: 5000,
@@ -43,21 +42,25 @@ const ItemDetail = ({ item }) => {
 
   return (
     <>
-      <div className="card mb-3 blur text-white" style={{ maxwidth: "540px" }}>
+      <div className="card mb-3 bg-transparent text-white" style={{ maxwidth: "540px" }}>
         <div className="row g-0">
-          <div className="col-md-4">
-            <small>*Imagen ilustrativa</small>
+          <div className="col-md-4 ">
             <img
               src={`${image}`}
-              className="img-fluid rounded-start"
+              className="img-fluid rounded mt-3"
               alt={`Nombre: ${title} Descripción:${description}`}
-            />
+              />
+            <small className="bg-dark p-1 opacity-75">*Imagen ilustrativa</small>
           </div>
           <div className="col-md-8">
             <div className="card-body text-center">
-              <h1 className="h1 card-title">{`${title}`}</h1>
-              <p className="card-text">{`${description}`}</p>
+              <div className="blur rounded mx-md-5"> 
 
+              <h1 className="h1 card-title">{`${title}`}</h1>
+              <p className="card-text bg-dark bg-opacity-75 p-2">{`${description}`}</p>
+
+              </div>
+              <div className="blur rounded pt-2 mt-3 mx-md-5"> 
               <p>Seleccionar Talle:</p>
 
               {
@@ -81,10 +84,11 @@ const ItemDetail = ({ item }) => {
              
                 )
               }
-              <p>Seleccionar Color de la prenda:</p>
+              <p className="mt-2">Seleccionar Color de la prenda:</p>
               {
-                colores.map(({name, colorClassName}, i) =>
-                             (<div className="d-inline" key={i}>
+                colores.map(({name, colorClassName}, i) => (
+              
+              <div className="d-inline" key={i}>
              
               <input
                 type="radio"
@@ -96,10 +100,6 @@ const ItemDetail = ({ item }) => {
               <label className={colorClassName} for={name}>
                 {name}
               </label>
-
-
-                  
-
              </div>)
                 
                 )
@@ -107,22 +107,28 @@ const ItemDetail = ({ item }) => {
 
              
 
-              <RenderItemCount className="mt-5"/>
-              <p className="h4 card-text my-2">
+                <RenderItemCount className="mt-3" />
+                <div className="bg-dark bg-opacity-75 my-2">
+
+                <p className="d-inline h4 card-text p-1">
                 Precio total: ${`${price * quantity}`}
               </p>
               <p className="h6 card-text">Precio x unidad: ${`${price}`}</p>
+                </div>
+
+              </div>
               <button
-                className="btn btn-dark border-instagram m-2"
+                className="btn btn-dark border-instagram"
                 onClick={() => {
                   notify();
-                  addToCart(id, image, title, quantity, price);
+                  addToCart(id, image, title, quantity, price, description);
                   setCount(1);
                 }}
               >
                 Agregar Producto
               </button>
-              <ToastContainer progressClassName="bg-secondary border-instagram" />
+                <ToastContainer toastClassName="bg-dark" progressClassName="bg-danger border-instagram" />
+                
             </div>
           </div>
         </div>

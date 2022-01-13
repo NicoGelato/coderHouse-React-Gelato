@@ -14,31 +14,26 @@ const Carrousel = () => {
         <div className="carousel-indicators">
 
           {
-            imagenesCarousel.map((e, i) => {
-              
-              let classNameActive = i === 0 ? "active" : "";
-              
-              return (
-
-              <button
-                type="button"
-                data-bs-target="#carouselExampleIndicators"
+            imagenesCarousel.map((e, i) => (
+                <button
+                  type="button"
+                  data-bs-target="#carouselExampleIndicators"
                   data-bs-slide-to={`${i}`}
-                  className={classNameActive}
-                aria-current="true"
-                aria-label={`Slide ${i+1}`}
-                key={`${i}`}
-              ></button>
-
-
-              )    }
+                  className={i === 0 ? "active" : ""}
+                  aria-current="true"
+                  aria-label={`Slide ${i + 1}`}
+                  key={`${i}`}
+                ></button>
+              )
             )
 
           }   
         </div>
+
         <div className="carousel-inner">
           <div className="carousel-item active">
-            <img src={imagen1} className="d-block w-100" alt="..." />
+            <img src={imagen1} className="d-block w-100" alt="..." style={{height: ""}} />
+            {/* <img src={imagen1} className="d-block w-100" alt="..." style={{height: ""}} /> */}
 
             <div className="card-img-overlay container m-5 p-5">
               <span className="h2 bg-dark text-white m-3">

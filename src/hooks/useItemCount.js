@@ -1,5 +1,4 @@
 import { useState } from "react";
-
 import { AiOutlinePlus } from "react-icons/ai";
 import { AiOutlineMinus } from "react-icons/ai";
 
@@ -17,15 +16,15 @@ const useItemCount = () => {
     setCount(count + 1);
   };
 
-  const RenderItemCount = () => (
-    <div className="btn-wrapper">
+  const RenderItemCount = ({ className }) => (
+    <div className={`btn-wraper ${className}`}>
       <button
         className="btn btn-dark border-instagram mx-2"
         onClick={onDecrement}
       >
         <AiOutlineMinus />
       </button>
-      <span className="border-instagram px-5 py-1">{count}</span>
+      <span className="border-instagram px-5 py-1 bg-dark bg-opacity-25">{count}</span>
       <button
         className="btn btn-dark border-instagram mx-2"
         onClick={onIncrement}

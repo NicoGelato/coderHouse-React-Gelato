@@ -1,0 +1,23 @@
+ /*
+@font-face {
+  font-family: "Billabong";
+  src: url("./fontfamily-billabong-instagram-webfont.woff")
+    format("truetype");
+}; */
+
+
+/* Tipografía Billabong - Instagram*/
+@font-face {
+  font-family: 'Billabong';
+  src: url('./fontfamily-billabong-instagram-webfont.woff2') format('woff2'),
+  url('./fontfamily-billabong-instagram-webfont.woff') format('woff'),
+  url("./fontFamily-Billabong-Instagram.ttf") format("truetype")
+  ;
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Fuente de instagram */
+.fontBillabong {
+  font-family: Billabong !important;
+}

@@ -32,7 +32,6 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "limpiarcss": "purgecss --css ./src/scss/app.css --content *.html *.jsx --output ./src/scss/css/reducido.css",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -55,7 +54,6 @@
     ]
   },
   "devDependencies": {
-    "@fullhuman/postcss-purgecss": "^4.0.3",
     "purgecss": "^4.0.3"
   }
 }

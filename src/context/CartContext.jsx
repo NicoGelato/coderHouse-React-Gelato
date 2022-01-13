@@ -20,7 +20,7 @@ const CartProvider = ({ children }) => {
     setAndStore(downProduct);
   };
 
-  const addToCart = (id, image, title, quantity, price) => {
+  const addToCart = (id, image, title, quantity, price, description) => {
     const existProduct = products.find((product) => product.id === id);
 
     if (!existProduct) {
@@ -32,6 +32,7 @@ const CartProvider = ({ children }) => {
           title: title,
           quantity: quantity,
           price: price,
+          description: description,
         },
       ];
       setAndStore(product);
@@ -65,7 +66,7 @@ const CartProvider = ({ children }) => {
   }
 
   useEffect(() => {
-    const products = JSON.parse(localStorage.getItem("products") || "[]");
+    const products = JSON.parse(localStorage.getItem("products") ?? "[]");
     setProducts(products);
   }, []);
 

@@ -15,7 +15,6 @@ const ItemListContainer = () => {
   
   const { categoryId } = useParams();
 
-
   const getProductosData = async (categoryId) => {
     try {
       const productosData = !categoryId
@@ -41,7 +40,7 @@ const ItemListContainer = () => {
   } else {
     return (
       <div className="container mt-1">
-        <div className="navbar sticky-top-2  ">
+        <navbar className="navbar sticky-top-2  ">
           <ul className="nav">
             <li className="nav-item">
               <NavLink
@@ -70,7 +69,7 @@ const ItemListContainer = () => {
               </NavLink>
             </li>
           </ul>
-        </div>
+        </navbar>
         <ItemList productos={productos} />
       </div>
     );

@@ -26,7 +26,7 @@ const ItemDetailContainer = () => {
   } else {
     return (
       <div className="container-fluid pt-3">
-        <ItemDetail item={product} />
+        <ItemDetail product={product} />
       </div>
     );
   }

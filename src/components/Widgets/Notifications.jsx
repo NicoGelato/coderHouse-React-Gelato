@@ -16,23 +16,20 @@ const Msg = ({ quantity, title, id }) => {
             ? `Se agregó  ${quantity}  "${title}" al carrito`
             : `Se agregaron  ${quantity}  "${title}" al carrito`}
         </span>
-        <span className="hover-white">
+        <span>
           <button
-            className="btn btn-dark border-instagram me-2 mt-1 hover-white"
+            className="btn btn-dark border-instagram me-2 mt-1 "
             onClick={() => {
               undoAddToCart(id, quantity);
             }}
           >
-            <BsCartX className="hover-white" style={{ fontSize: "0.9rem" }} />{" "}
+            <BsCartX  style={{ fontSize: "0.9rem" }} />{" "}
             Cancelar
           </button>
         </span>
-        <Link to="/Carrito" className="hover-white">
+        <Link to="/carrito" >
           <button className="btn btn-dark border-instagram mt-1 ">
-            <IoCartOutline
-              className="hover-white"
-              style={{ fontSize: "1rem" }}
-            />{" "}
+            <IoCartOutline style={{ fontSize: "1rem" }}/>{" "}
             Ir a ver!
           </button>
         </Link>
