@@ -1,11 +1,3 @@
- /*
-@font-face {
-  font-family: "Billabong";
-  src: url("./fontfamily-billabong-instagram-webfont.woff")
-    format("truetype");
-}; */
-
-
 /* Tipografía Billabong - Instagram*/
 @font-face {
   font-family: 'Billabong';
@@ -20,4 +12,30 @@
 /* Fuente de instagram */
 .fontBillabong {
   font-family: Billabong !important;
+}
+
+/* Tamaño de fuente */
+.font-large {
+  font-size: 30px;
+}
+
+/* Espaciado entre palabras */
+.word-spacing {
+  word-spacing: 0.25em;
+}
+
+/* back-ground tipo instagram */
+.bg-instagram {
+  background: linear-gradient(
+    135deg,
+    #f09433,
+    #e6683c,
+    #e63c3c,
+    #dc2743,
+    #e1306c,
+    #c13584,
+    #833ab4,
+    #5851db,
+    #405de6
+  );
 }

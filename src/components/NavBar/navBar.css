@@ -1,0 +1,18 @@
+/* Linea inferior de los Links */
+
+.border-bottom-instagram {
+    border-bottom: 1px solid transparent;
+    border-image: linear-gradient(
+    135deg,
+    #f09433,
+    #e6683c,
+    #e63c3c,
+    #dc2743,
+    #e1306c,
+    #c13584,
+    #833ab4,
+    #5851db,
+    #405de6
+  );
+    border-image-slice: 1;
+};
