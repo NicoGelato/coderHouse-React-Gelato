@@ -31,16 +31,11 @@ const Cart = () => {
   } else {
     return (
       <article className="container">
-        <div className="table mt-5 p-2 blur ">
-          <table className="table text-white">
+        <div className="table mt-5 p-2 blur bg-dark bg-opacity-50">
+          <table className="table text-white ">
             <thead>
               <tr>
-                {/* <th scope="col">Imagen</th> */}
                 <th scope="col">Productos ({getTotalProducts()})</th>
-                {/* <th scope="col">Precio unitario</th> */}
-                {/* <th scope="col">Cantidad a comprar</th>
-                <th scope="col">Total por producto</th>
-                <th scope="col"></th> */}
               </tr>
             </thead>
             {products.map(
@@ -79,60 +74,38 @@ const Cart = () => {
                                     Precio unitario:$ {price}
                                   </small>
                                 </p>
-                                <p className="card-text">Total: ${quantity * price}</p>
-
+                                <p className="card-text">Total por producto: ${quantity * price}</p>
                               </div>
                             </div>
-                            <div className="col-md-1 trash"><AiTwotoneDelete
-    className=""
-                          title="No comprar este producto"
-                          type="button"
-                          onClick={() => removeProduct(id)}
-                          style={{ color: "white", fontSize: "1.5rem" }}
-                        /></div>
+                            <div className="col-md-1 text-end trash ">
+                            <i><AiTwotoneDelete
+                              title="No comprar este producto"
+                              type="button"
+                              onClick={() => removeProduct(id)}
+                              style={{  fontSize: "1.5rem" }}
+                            /></i>
+                          </div>
                           </div>
                         </section>
-                        {/* 
-                        <div className="containerImg">
-                          <input type="checkbox" id={i} />
-                          <label htmlFor={i}>
-                            <img
-                              src={`${image}`}
-                              alt={`${categoryId} : ${title}`}
-                            />
-                          </label>
-                        </div>
                       </th>
-                      <th scope="row">{title}</th>
-                      <th scope="row">$ {price} */}
-                      </th>
-                      {/* <th scope="row">{quantity}</th>
-                      <th scope="row">$ {quantity * price}</th> */}
-                      {/* <th scope="row">
-                        <AiTwotoneDelete
-                          title="No comprar este producto"
-                          type="button"
-                          onClick={() => removeProduct(id)}
-                          style={{ color: "white", fontSize: "1.5rem" }}
-                        />
-                      </th> */}
                     </tr>
                   </tbody>
                 );
               }
             )}
           </table>
-          <section className="text-end border-0">
-            <p className="h5 text-end text-white">TOTAL: ${getTotalPrice()}</p>
-            <button className="btn btn-dark border-instagram">COMPRAR</button>
+          <section className="border-0">
+            <p className="d-inline  h5 text-white">TOTAL: ${getTotalPrice()}</p>
           </section>
         </div>
 
-        <Link className="position-absolute bottom-0 end-0" to="/productos">
-          <button className="btn btn-dark border-instagram m-2">
-            Seguir comprando{" "}
+            <button className="btn btn-dark border-instagram m-2">COMPRAR</button>
+                    <Link className="" to="/productos">
+          <button className="btn btn-dark bg-dark border-instagram">
+            Agregar otro producto{" "}
           </button>
         </Link>
+
       </article>
     );
   }

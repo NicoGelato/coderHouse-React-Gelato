@@ -116,9 +116,11 @@ const ItemDetail = ({ product }) => {
               <p className="h6 card-text">Precio x unidad: ${`${price}`}</p>
                 </div>
 
-              </div>
+
+<div className="d-grid gap-2">
+
               <button
-                className="btn btn-dark border-instagram"
+                className="btn  btn-dark border-instagram"
                 onClick={() => {
                   notify();
                   addToCart(id, image, title, quantity, price, description);
@@ -127,6 +129,10 @@ const ItemDetail = ({ product }) => {
               >
                 Agregar Producto
               </button>
+
+</div>
+              </div>
+
                 <ToastContainer toastClassName="bg-dark" progressClassName="bg-danger border-instagram" />
                 
             </div>

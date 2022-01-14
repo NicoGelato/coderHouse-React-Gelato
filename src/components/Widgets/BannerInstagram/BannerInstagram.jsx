@@ -15,15 +15,12 @@ const BannerInstagram = () => {
 
   return (
     <section
-      className={`container-fluid instagram ${view}`}
+      className={`position-relative container-fluid instagram ${view}`}
       title="Visita nuestro Insta!"
     >
-      {/* <button type="button" className="position-absolute btn btn-circle mt-1" onClick={close} title="Cerrar">
-          <AiOutlineClose />
-                            </button> */}
       <button
         type="button"
-        className="position-absolute btn-close mt-2"
+        className="position-absolute mt-2 btn-close"
         onClick={close}
         title="Cerrar"
         aria-label="Close"
