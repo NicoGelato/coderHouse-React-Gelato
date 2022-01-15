@@ -1,5 +1,6 @@
 .btn-wsp {
   position: fixed;
+  padding: 3.5px;
   width: 47px;
   height: 47px;
   bottom: 60px;
@@ -25,4 +26,6 @@
   background-color: #fff;
 }
 
-
+.btn-wsp svg {
+  display: block;
+}

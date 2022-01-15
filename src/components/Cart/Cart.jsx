@@ -11,22 +11,25 @@ const Cart = () => {
 
   if (!products || products.length === 0) {
     return (
-      <>
         <div className="box pt-5">
+        <div className="container blur p-2 border-instagram"> 
           <p className="h2 text-white text-center">
             Todavía no agregaste nada al carrito
           </p>
+          <div class="d-grid gap-2 col-6 mx-auto">
           <Link
-            className="position-absolute bottom-0 end-0"
+            className="m-auto bottom-0 end-0"
             to="/productos"
           >
-            <button className="btn btn-dark border-instagram m-2">
+            <button className="btn btn-dark border-instagram">
               Ver qué puedo agregar <AiOutlineHeart />
             </button>
           </Link>
+        </div>
+        
+        </div>
           <span className="fs-1">☠️</span>
         </div>
-      </>
     );
   } else {
     return (

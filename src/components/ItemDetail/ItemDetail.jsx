@@ -44,7 +44,7 @@ const ItemDetail = ({ product }) => {
     <>
       <div className="card mb-3 bg-transparent text-white" style={{ maxwidth: "540px" }}>
         <div className="row g-0">
-          <div className="col-md-4 ">
+          <div className="col-md-4">
             <img
               src={`${image}`}
               className="img-fluid rounded mt-3"
