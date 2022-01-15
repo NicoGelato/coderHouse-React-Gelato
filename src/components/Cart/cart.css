@@ -1,30 +1,3 @@
-/* Zoom de las imagenes */
-.containerImg input[type = checkbox] {
-      display: none;
-   }
-
-   .containerImg img {
-
-      /* height: 130px; */
-      transition: transform 0.25s ease;
-      cursor: zoom-in ;
-      -webkit-transition: transform 0.25s ease;
-      -moz-transition: transform 0.25s ease;
-      -ms-transition: transform 0.25s ease;
-      -o-transition: transform 0.25s ease;
-}
-
-    .containerImg :checked ~label > img {
-
-   transform: scale(1.5);
-   cursor: zoom-out;
-   -webkit-transform: scale(1.5);
-   -moz-transform: scale(1.5);
-   -ms-transform: scale(1.5);
-   -o-transform: scale(1.5);
-}
-/* Zoom de las imagenes */
-
 /* El efecto del cart vacio */
 .box{
   margin: auto;
@@ -42,6 +15,39 @@ position:absolute; z-index:1; width:100%; height:88%;
   animation: moveX 4s linear 0s infinite alternate, moveY 3.4s linear 0s infinite alternate;
 }
 
+/* Revisar Media */
+
+@media (max-Width: 575px) {
+  
+@-webkit-keyframes moveX {
+  from { left: 0; } to { left: 90%; }
+}
+@-moz-keyframes moveX {
+  from { left: 0; } to { left: 90%; }
+}
+@-o-keyframes moveX {
+  from { left: 0; } to { left: 90%; }
+}
+@keyframes moveX {
+  from { left: 0; } to { left: 90%; }
+}
+
+@-webkit-keyframes moveY {
+  from { top: 0; } to { top: 95%; }
+}
+@-moz-keyframes moveY {
+  from { top: 0; } to { top: 95%; }
+}
+@-o-keyframes moveY {
+  from { top: 0; } to { top: 95%; }
+}
+@keyframes moveY {
+  from { top: 0; } to { top: 95%; }
+}
+
+}
+
+@media (min-Width: 576px) {
 @-webkit-keyframes moveX {
   from { left: 0; } to { left: 97%; }
 }
@@ -68,7 +74,36 @@ position:absolute; z-index:1; width:100%; height:88%;
   from { top: 0; } to { top: 90%; }
 }
 
+
+}
+
 /* El efecto del cart vacio */
+
+/* Zoom de las imagenes */
+.containerImg input[type = checkbox] {
+      display: none;
+   }
+
+   .containerImg img {
+
+      cursor: zoom-in ;
+      transition: transform 0.25s ease;
+      -webkit-transition: transform 0.25s ease;
+      -moz-transition: transform 0.25s ease;
+      -ms-transition: transform 0.25s ease;
+      -o-transition: transform 0.25s ease;
+}
+
+.containerImg :checked ~ label > img{
+    cursor: zoom-out;
+    transform: scale(1.5);
+    -webkit-transform: scale(1.5);
+    -moz-transform: scale(1.5);
+    -ms-transform: scale(1.5);
+    -o-transform: scale(1.5);
+} 
+/* Zoom de las imagenes */
+
 
 /* Boton de eliminar */
 

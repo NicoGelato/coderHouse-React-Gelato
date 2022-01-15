@@ -1,0 +1,11 @@
+.carousel-inner img {
+    width: 100%;
+    background-size: cover;
+}
+
+@media (min-Width: 576px) {
+
+  .carousel-inner{
+   height: 400px;
+  }
+}

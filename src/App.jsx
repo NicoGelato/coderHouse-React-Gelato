@@ -1,6 +1,7 @@
 import AppRoutes from "./routes/AppRoutes";
-import "./scss/app.scss";
-import "./scss/css/ReactToastify.css";
+import "../node_modules/bootstrap/dist/css/bootstrap.min.css"
+import "./app.css";
+import "./reactToastify.css";
 
 const App = () => {
   return (

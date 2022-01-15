@@ -11,7 +11,9 @@
 
 /* Fuente de instagram */
 .fontBillabong {
-  font-family: Billabong !important;
+  font-family: Billabong, Apple Chancery, cursive !important;
+  font-weight: normal;
+  font-style: normal;
 }
 
 /* Tamaño de fuente */

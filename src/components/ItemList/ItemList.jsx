@@ -1,4 +1,4 @@
-// Aca iria un useMemo
+// Aca iria un useMemo ?
 import React from "react";
 
 import Item from "../Item/Item";

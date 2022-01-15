@@ -1,0 +1,89 @@
+*{
+  font-family: Roboto, sans-serif;
+}
+
+/* Color del body */
+body {
+  
+  background-image: url("https://images.pexels.com/photos/137077/pexels-photo-137077.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+  /* background-image: url("https://images.pexels.com/photos/4957646/pexels-photo-4957646.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260"); */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+/* Fondo de Barra de Scroll */
+body::-webkit-scrollbar {
+  background: #101415;
+  width: 5px;
+}
+
+/* Barra de Scroll */
+body::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    0deg,
+    #101415,
+    #f0953320,
+    #f0953350,
+    #f0953380,
+    #f0943390,
+    #e6683c,
+    #e63c3c,
+    #dc2743,
+    #e1306c,
+    #c13584,
+    #833ab4,
+    #5851db,
+    #405de690,
+    #405ce680,
+    #405de650,
+    #405de620,
+    #101415
+  );
+}
+
+/*Blur (Fondo de las cards con Efecto )*/
+.blur {
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  background-color: rgba(0, 0, 0, 0.25);
+}
+
+/* border gradient tipo instagram */
+
+.border-instagram {
+
+    border: 1px solid transparent;
+    border-image: linear-gradient(
+    135deg,
+    #f09433,
+    #e6683c,
+    #e63c3c,
+    #dc2743,
+    #e1306c,
+    #c13584,
+    #833ab4,
+    #5851db,
+    #405de6
+  );
+    border-image-slice: 1;
+}
+
+.border-bottom-instagram {
+
+    border-bottom: 1px solid transparent;
+    border-image: linear-gradient(
+    135deg,
+    #f09433,
+    #e6683c,
+    #e63c3c,
+    #dc2743,
+    #e1306c,
+    #c13584,
+    #833ab4,
+    #5851db,
+    #405de6
+  );
+    border-image-slice: 1;
+}
+

@@ -7,8 +7,6 @@ const Cart = () => {
 
   const { products, removeProduct, getTotalPrice, getTotalProducts } = useCartContext();
 
-  console.log(products);
-
   if (!products || products.length === 0) {
     return (
         <div className="box pt-5">
@@ -71,23 +69,27 @@ const Cart = () => {
                               <div className="card-body">
                                 <h4 className="card-title">{title}</h4>
                                 <p className="card-text">{description}</p>
-                                <p className="card-text">Cantidad: {quantity}</p>
                                 <p className="card-text">
-                                  <small >
-                                    Precio unitario:$ {price}
-                                  </small>
+                                  Cantidad: {quantity}
                                 </p>
-                                <p className="card-text">Total por producto: ${quantity * price}</p>
+                                <p className="card-text">
+                                  <small>Precio unitario: ARS$ {price}</small>
+                                </p>
+                                <p className="card-text">
+                                  Total por producto: ARS$ {quantity * price}
+                                </p>
                               </div>
                             </div>
                             <div className="col-md-1 text-end trash ">
-                            <i><AiTwotoneDelete
-                              title="No comprar este producto"
-                              type="button"
-                              onClick={() => removeProduct(id)}
-                              style={{  fontSize: "1.5rem" }}
-                            /></i>
-                          </div>
+                              <i>
+                                <AiTwotoneDelete
+                                  title="No comprar este producto"
+                                  type="button"
+                                  onClick={() => removeProduct(id)}
+                                  style={{ fontSize: "1.8rem" }}
+                                />
+                              </i>
+                            </div>
                           </div>
                         </section>
                       </th>
@@ -98,17 +100,19 @@ const Cart = () => {
             )}
           </table>
           <section className="border-0">
-            <p className="d-inline  h5 text-white">TOTAL: ${getTotalPrice()}</p>
+            <p className="d-inline  h5 text-white">TOTAL: ARS$ {getTotalPrice()}</p>
           </section>
         </div>
-
-            <button className="btn btn-dark border-instagram m-2">COMPRAR</button>
-                    <Link className="" to="/productos">
-          <button className="btn btn-dark bg-dark border-instagram">
-            Agregar otro producto{" "}
+        <div className="d-grid d-md-inline-block gap-2 mb-2">
+          <button className="btn  btn-dark border-instagram m-2">
+            COMPRAR
           </button>
-        </Link>
-
+          <Link className="btn" to="/productos">
+            <button className="btn btn-dark bg-dark border-instagram">
+              Agregar otro producto{" "}
+            </button>
+          </Link>
+        </div>
       </article>
     );
   }

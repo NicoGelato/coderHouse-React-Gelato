@@ -4,14 +4,14 @@
   display: -webkit-box;
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
-};
+}
 
 .text-limit-2 {
   overflow: hidden;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
-};
+}
 
 .text-limit-3 {
   overflow: hidden;
@@ -19,3 +19,28 @@
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
 }
+
+/* Zoom de las imagenes */
+
+.containerItemImg input[type = checkbox]{
+  display: none
+}
+
+  .containerItemImg img{
+    cursor: zoom-in;
+    transition: transform 0.25s ease;
+    -webkit-transition: transform 0.25s ease;
+    -moz-transition: transform 0.25s ease;
+    -ms-transition: transform 0.25s ease;
+    -o-transition: transform 0.25s ease;
+}
+
+.containerItemImg :checked ~ label > img{
+    cursor: zoom-out;
+    transform: scale(1.3);
+    -webkit-transform: scale(1.3);
+    -moz-transform: scale(1.3);
+    -ms-transform: scale(1.3);
+    -o-transform: scale(1.3);
+}
+

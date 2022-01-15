@@ -7,7 +7,6 @@ import ItemListContainer from "../containers/ItemListContainer";
 import ItemDetailContainer from "../containers/ItemDetailContainer";
 import Cart from "../components/Cart/Cart"
 import BannerInstagram from "../components/Widgets/BannerInstagram/BannerInstagram";
-import Carrousel from "../components/Carrousel/Carrousel";
 import WhatsappWidget from "../components/Widgets/WhatsappWidget/WhatsappWidget";
 
 
@@ -16,7 +15,7 @@ const AppRoutes = () => {
     <BrowserRouter>
       <BannerInstagram />
       <CartProvider>
-      <NavBar />
+        <NavBar />
         <Switch>
           <Route path="/productos" exact component={ItemListContainer} />
           <Route path="/productos/:id" exact component={ItemDetailContainer} />
@@ -28,7 +27,7 @@ const AppRoutes = () => {
         </Switch>
         <Route path="/carrito" exact component={Cart} />
       </CartProvider>
-        <Route path="/" exact component={Carrousel} />
+      <Route path="/" exact component={ItemListContainer} />
       <WhatsappWidget />
     </BrowserRouter>
   );
