@@ -2,9 +2,9 @@ import { useState, useEffect, useCallback } from "react";
 import { NavLink } from "react-router-dom";
 import { useParams } from "react-router";
 
-import { getProductos } from "../utils/getProductos";
-import { getProductosByCategory } from "../utils/getProductosByCategory";
-import { firstLetterUpperCase } from "../utils/firstLetterUpperCase";
+import { getProductos } from "../utils/backend/getProductos";
+import { getProductosByCategory } from "../utils/backend/getProductosByCategory";
+import { firstLetterUpperCase } from "../utils/frontend/firstLetterUpperCase";
 
 import ItemList from "../components/ItemList/ItemList";
 import Loader from "../components/Loader/Loader";
@@ -43,7 +43,7 @@ const ItemListContainer = () => {
         <Loader />
       ) : (
         <div className="container">
-          <navbar className="navbar sticky-top-2  ">
+          <nav className="navbar sticky-top-2  ">
             <ul className="nav">
               <li className="nav-item">
                 <NavLink
@@ -72,7 +72,7 @@ const ItemListContainer = () => {
                 </NavLink>
               </li>
             </ul>
-          </navbar>
+          </nav>
           <ItemList productos={productos} />
         </div>
       )}

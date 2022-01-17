@@ -13,6 +13,8 @@ const NavBar = () => {
       : setNotificationBurgerButton("");
   };
 
+
+
   const { getTotalProducts } = useCartContext();
 
   return (
@@ -22,7 +24,7 @@ const NavBar = () => {
       </NavLink>
       <button
         className="navbar-toggler d-sm-block d-md-none shadow-none border-0"
-        onClick={() => hunddleViewNotification()}
+        onClick={()=> hunddleViewNotification()}
         type="button"
         data-bs-toggle="collapse"
         data-bs-target="#toggleMobileMenu"

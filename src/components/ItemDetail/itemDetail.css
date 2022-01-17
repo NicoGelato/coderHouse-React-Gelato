@@ -1,0 +1,21 @@
+.containerItemDetailImg input[type="checkbox"] {
+    display: none;
+}
+
+.containerItemDetailImg img {
+    cursor: zoom-in;
+    transition: transform 0.25s ease;
+    -webkit-transition: transform 0.25s ease;
+    -moz-transition: transform 0.25s ease;
+    -ms-transition: transform 0.25s ease;
+    -o-transition: transform 0.25s ease;
+}
+
+.containerItemDetailImg :checked ~label > img {
+    cursor: zoom-out;
+    transform: scale(1.25);
+    -webkit-transform: scale(1.25);
+    -moz-transform: scale(1.25);
+    -ms-transform: scale(1.25);
+    -o-transform: scale(1.25);
+}

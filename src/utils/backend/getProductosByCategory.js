@@ -1,6 +1,6 @@
 import { collection, query, where, getDocs } from "firebase/firestore";
 
-import { db } from "../firebase/firebaseConfig";
+import { db } from "../../firebase/firebaseConfig";
 
 export const getProductosByCategory = async (categoryId) => {
   try {

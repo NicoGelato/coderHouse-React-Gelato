@@ -4,7 +4,7 @@ import { useParams } from "react-router";
 import ItemDetail from "../components/ItemDetail/ItemDetail";
 import Loader from "../components/Loader/Loader";
 
-import { getProductosById } from "../utils/getProductosById";
+import { getProductosById } from "../utils/backend/getProductosById";
 
 const ItemDetailContainer = () => {
   const { id } = useParams();

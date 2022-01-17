@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useCartContext } from "../../context/CartContext";
 import { AiTwotoneDelete, AiOutlineHeart } from "react-icons/ai";
-import { agregarPuntoAlNumero } from "../../utils/agregarPuntoAlNumero";
+import { agregarPuntoAlNumero } from "../../utils/frontend/agregarPuntoAlNumero";
 import "./cart.css";
 
 const Cart = () => {
@@ -38,31 +38,30 @@ const Cart = () => {
             </thead>
             {products.map(
               (
-                { id, title, price, quantity, image, categoryId, description },
-                i
+                { id, title, price, quantity, image, categoryId, description }
               ) => {
                 return (
                   <tbody key={id}>
                     <tr>
                       <th scope="row">
                         <section
-                          className="card bg-transparent border-0 mb-3"
+                          className="card bg-dark bg-opacity-50 p-2 border-0 "
                           style={{ maxwidth: "540px" }}
                         >
                           <div className="row g-0">
-                            <div className="col-md-2">
-                              <div className="containerImg">
-                                <input type="checkbox" id={i} />
-                                <label htmlFor={i}>
-                                  <img
-                                    className="img-fluid rounded-start"
-                                    src={`${image}`}
-                                    alt={`${categoryId} : ${title}`}
-                                  />
-                                </label>
+                            <div className="col-md-3">
+                              <div className="containerImg ">
+                                  <input type="checkbox" id={id} />
+                                  <label htmlFor={id}>
+                                    <img
+                                      className="img-fluid rounded-start"
+                                      src={`${image}`}
+                                      alt={`${categoryId} : ${title}`}
+                                    />
+                                  </label>
                               </div>
                             </div>
-                            <div className="col-md-9">
+                            <div className="col-md-8">
                               <div className="card-body">
                                 <h4 className="card-title">{title}</h4>
                                 <p className="card-text">{description}</p>
@@ -81,7 +80,7 @@ const Cart = () => {
                                 </p>
                               </div>
                             </div>
-                            <div className="col-md-1 text-end trash ">
+                            <div className="col-md-1 text-end trashCan">
                               <i>
                                 <AiTwotoneDelete
                                   title="No comprar este producto"
@@ -106,7 +105,7 @@ const Cart = () => {
             </p>
           </section>
         </div>
-        <div className="d-grid d-md-inline-block gap-2 mb-2">
+        <div className="d-grid d-md-inline-block gap-2 mt-1 mb-3">
           <button className="btn  btn-dark border-instagram m-2">
             COMPRAR
           </button>

@@ -3,9 +3,10 @@ import { IoCartOutline } from "react-icons/io5";
 import { Link } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import { useCartContext } from "../../context/CartContext";
-import { agregarPuntoAlNumero } from "../../utils/agregarPuntoAlNumero";
+import { agregarPuntoAlNumero } from "../../utils/frontend/agregarPuntoAlNumero";
 import useItemCount from "../../hooks/useItemCount";
 import Msg from "../Widgets/Notifications";
+import "./itemDetail.css";
 
 const ItemDetail = ({ product }) => {
   const { title, image, description, price, id } = product;
@@ -37,21 +38,26 @@ const ItemDetail = ({ product }) => {
   return (
     <>
       <div
-        className="card bg-transparent text-white"
+        className="card bg-transparent border-none text-white"
         style={{ maxwidth: "540px" }}
       >
         <div className="row g-0">
-          <div className="col-md-4">
-            <img
-              src={`${image}`}
-              className="img-fluid rounded mt-3"
-              alt={`Nombre: ${title} Descripción:${description}`}
-            />
+          <div className="col-md-5">
+            <div className="containerItemDetailImg">
+              <input type="checkbox" id="itemDetailImg" />
+              <label htmlFor="itemDetailImg">
+                <img
+                  src={`${image}`}
+                  className="img-fluid rounded mt-3"
+                  alt={`Nombre: ${title} Descripción:${description}`}
+                />
+              </label>
+            </div>
             <small className="bg-dark p-1 opacity-75">
               *Imagen ilustrativa
             </small>
           </div>
-          <div className="col-md-8">
+          <div className="col-md-7 ">
             <div className="card-body text-center">
               <div className="blur rounded mx-md-5">
                 <h1 className="h1 card-title">{`${title}`}</h1>
@@ -60,8 +66,8 @@ const ItemDetail = ({ product }) => {
               <div className="blur rounded pt-2 mt-3 mx-md-5">
                 <p>Seleccionar Talle:</p>
 
-                {talles.map((e, i) => (
-                  <div className="d-inline" key={i}>
+                {talles.map((e) => (
+                  <div className="d-inline" key={e}>
                     <input
                       type="radio"
                       className="btn-check"
@@ -75,8 +81,8 @@ const ItemDetail = ({ product }) => {
                   </div>
                 ))}
                 <p className="mt-2">Seleccionar Color de la prenda:</p>
-                {colores.map(({ name, colorClassName }, i) => (
-                  <div className="d-inline" key={i}>
+                {colores.map(({ name, colorClassName }) => (
+                  <div className="d-inline" key={name}>
                     <input
                       type="radio"
                       className="btn-check"
@@ -103,7 +109,7 @@ const ItemDetail = ({ product }) => {
 
                 <div className="d-grid gap-2">
                   <button
-                    className="btn  btn-dark border-instagram"
+                    className="btn btn-dark border-instagram"
                     onClick={() => {
                       notify();
                       addToCart(id, image, title, quantity, price, description);
@@ -114,16 +120,12 @@ const ItemDetail = ({ product }) => {
                   </button>
                 </div>
               </div>
-
               <ToastContainer
                 toastClassName="bg-dark"
                 progressClassName="bg-danger border-instagram"
               />
-            </div>
-          </div>
-        </div>
-      </div>
-      <section className="text-center mb-3">
+
+      <section className="text-center mt-4">
         <Link to="/productos">
           <button className="btn btn-dark border-instagram mt-1 m-2">
             Volver <IoIosUndo />
@@ -138,6 +140,11 @@ const ItemDetail = ({ product }) => {
           </Link>
         ) : null}
       </section>
+
+            </div>
+          </div>
+        </div>
+      </div>
     </>
   );
 };

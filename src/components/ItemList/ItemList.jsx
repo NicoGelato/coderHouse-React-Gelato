@@ -7,7 +7,7 @@ const ItemList = ({ productos }) => {
   return (
     <div className="row rounded-3 p-1">
       {productos.map(({ image, title, description, price, categoryId, id }) => (
-        <div className="col-12 col-md-6 col-lg-3 p-3" key={id}>
+        <div key={id} className="col-12 col-md-6 col-lg-3 p-3">
           <Item
             categoryId={categoryId}
             image={image}

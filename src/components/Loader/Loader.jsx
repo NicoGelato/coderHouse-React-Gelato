@@ -22,11 +22,11 @@ const Loader = () => {
         <>
           <h1 className="text-center text-white h3">☠️ Cargando ... ☠️</h1>
           <div className="d-flex justify-content-center m-5">
-            {[...Array(3)].map((e, i) => (
+            {[...Array.from({ length: 3 }, (v, i) => i)].map((e) => (
               <div
                 className="spinner-grow spinner-grow-sm text-light mx-1"
                 role="status"
-                key={i}
+                key={e}
               >
                 <span className="visually-hidden">Cargando...</span>
               </div>

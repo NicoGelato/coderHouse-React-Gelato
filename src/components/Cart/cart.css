@@ -187,11 +187,10 @@
 /* Zoom de las imagenes */
 
 /* Boton de eliminar */
-
-.trash {
+.trashCan {
   color: #f8f9fa;
 }
 
-.trash :hover {
+.trashCan :hover {
   color: #dc3548;
 }

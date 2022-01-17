@@ -1,4 +1,4 @@
-import { mercadopago } from "../mercadopago/mercadoPagoConfing";
+import { mercadopago } from "../../../mercadopago/mercadoPagoConfing";
 
 let preference = {
   items: [
