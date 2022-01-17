@@ -1,11 +1,14 @@
-import imagen1 from "./imagenes_carrousel/carrousel_1.jpg";
-import imagen2 from "./imagenes_carrousel/carrousel_2.jpg";
-import imagen3 from "./imagenes_carrousel/carrousel_3.jpg";
-import imagen4 from "./imagenes_carrousel/carrousel_4.jpg";
-import imagen5 from "./imagenes_carrousel/carrousel_5.jpg";
+import final1 from "./imagenes_carrousel/final1.jpg";
+import final2 from "./imagenes_carrousel/final2.jpg";
+import final3 from "./imagenes_carrousel/final3.jpg";
+
 import "./carrousel.css";
 
-const imagenesCarousel = [imagen1, imagen2, imagen3];
+const imagenesCarousel = [
+  { src: final1, key: "chicaVinilo" },
+  { src: final2, key: "chicoFondoNegro" },
+  { src: final3, key: "chicaFondoDePiedra" },
+];
 
 const Carrousel = () => {
   return (
@@ -15,15 +18,15 @@ const Carrousel = () => {
       data-bs-ride="carousel"
     >
       <div className="carousel-indicators">
-        {imagenesCarousel.map((e, i) => (
+        {imagenesCarousel.map(({ src, key }, i) => (
           <button
             type="button"
             data-bs-target="#carouselExampleIndicators"
             data-bs-slide-to={`${i}`}
-            className={i === 0 ? "active" : ""}
+            className={i === 0 ? "active" : " "}
             aria-current="true"
             aria-label={`Slide ${i + 1}`}
-            key={`${i}`}
+            key={`${key}`}
           ></button>
         ))}
       </div>
@@ -31,7 +34,7 @@ const Carrousel = () => {
       <div className="carousel-inner">
         <div className="carousel-item active">
           <img
-            src={imagen1}
+            src={final1}
             className="d-block w-100"
             alt="..."
             // style={{ height: "100%" }}
@@ -49,14 +52,14 @@ const Carrousel = () => {
           </div>
         </div>
         <div className="carousel-item">
-          <img src={imagen4} className="d-block w-100" alt="..." />
+          <img src={final2} className="d-block w-100" alt="..." />
           {/* <img src={imagen2} className="d-block w-100" alt="..." /> */}
         </div>
         <div className="carousel-item">
           <img
-            src={imagen5}
-            style={{ maxheight: "400px" }}
-            className="d-block"
+            src={final3}
+            // style={{ maxheight: "400px" }}
+            className="d-block w-100"
             alt="..."
           />
           {/* <img src="https://images.pexels.com/photos/2690323/pexels-photo-2690323.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260" style={{maxheight: "400px"}} className="d-block" alt="..." /> */}
