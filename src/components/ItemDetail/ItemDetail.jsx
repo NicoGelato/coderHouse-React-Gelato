@@ -7,7 +7,7 @@ import { agregarPuntoAlNumero } from "../../utils/agregarPuntoAlNumero";
 import useItemCount from "../../hooks/useItemCount";
 import Msg from "../Widgets/Notifications";
 
-const ItemDetail = ( { product }) => {
+const ItemDetail = ({ product }) => {
   const { title, image, description, price, id } = product;
   const { addToCart, getTotalProducts } = useCartContext();
   const { count: quantity, setCount, RenderItemCount } = useItemCount();

@@ -1,14 +1,11 @@
-import { useState } from 'react';
+import { useState } from "react";
 import { AiOutlineInstagram } from "react-icons/ai";
-import './bannerInstagram.css'
+import "./bannerInstagram.css";
 
 const BannerInstagram = () => {
+  const [view, setView] = useState("");
 
-  const [view, setView] = useState('');
-
-  const close = () => setView('d-none');
-
-  
+  const close = () => setView("d-none");
 
   return (
     <section

@@ -1,22 +1,20 @@
-import { useState } from "react"
+import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { useCartContext } from "../../context/CartContext";
 import CartWidget from "../Widgets/CartWidget";
-import "./navBar.css"
-
+import "./navBar.css";
 
 const NavBar = () => {
-
   const [notificationBurgerButton, setNotificationBurgerButton] = useState("");
 
   const hunddleViewNotification = () => {
-      notificationBurgerButton === "" ?
-      setNotificationBurgerButton("d-none") :
-      setNotificationBurgerButton("") 
-  }
+    notificationBurgerButton === ""
+      ? setNotificationBurgerButton("d-none")
+      : setNotificationBurgerButton("");
+  };
 
   const { getTotalProducts } = useCartContext();
-  
+
   return (
     <nav className="navbar navbar-dark navbar-expand-sm bg-dark px-4 sticky-top">
       <NavLink className="navbar-brand " to="/">
@@ -66,8 +64,6 @@ const NavBar = () => {
       </div>
     </nav>
   );
-  
-
 };
 
 export default NavBar;

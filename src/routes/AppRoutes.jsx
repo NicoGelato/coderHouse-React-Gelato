@@ -1,14 +1,11 @@
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-
 import { CartProvider } from "../context/CartContext";
-
 import NavBar from "../components/NavBar/NavBar";
 import ItemListContainer from "../containers/ItemListContainer";
 import ItemDetailContainer from "../containers/ItemDetailContainer";
-import Cart from "../components/Cart/Cart"
+import Cart from "../components/Cart/Cart";
 import BannerInstagram from "../components/Widgets/BannerInstagram/BannerInstagram";
 import WhatsappWidget from "../components/Widgets/WhatsappWidget/WhatsappWidget";
-
 
 const AppRoutes = () => {
   return (

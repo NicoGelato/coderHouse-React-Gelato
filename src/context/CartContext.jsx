@@ -12,7 +12,6 @@ const CartProvider = ({ children }) => {
     localStorage.setItem("products", JSON.stringify(list));
   };
 
-  
   const removeProduct = (id) => {
     const downProduct = products.filter((product) => {
       return product.id !== id;
@@ -50,8 +49,7 @@ const CartProvider = ({ children }) => {
     } else {
       removeProduct(id);
     }
-  }
-
+  };
 
   const getTotalProducts = () => {
     return products.reduce((totalCount, product) => {
@@ -61,9 +59,9 @@ const CartProvider = ({ children }) => {
 
   const getTotalPrice = () => {
     return products.reduce((totalCount, product) => {
-      return totalCount +( product.quantity * product.price);
+      return totalCount + product.quantity * product.price;
     }, 0);
-  }
+  };
 
   useEffect(() => {
     const products = JSON.parse(localStorage.getItem("products") ?? "[]");

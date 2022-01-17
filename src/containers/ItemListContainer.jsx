@@ -39,7 +39,7 @@ const ItemListContainer = () => {
   return (
     <>
       <Carrousel />
-      {(!productos || productos.length === 0) ? (
+      {!productos || productos.length === 0 ? (
         <Loader />
       ) : (
         <div className="container">

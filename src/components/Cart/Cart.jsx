@@ -5,8 +5,8 @@ import { agregarPuntoAlNumero } from "../../utils/agregarPuntoAlNumero";
 import "./cart.css";
 
 const Cart = () => {
-
-  const { products, removeProduct, getTotalPrice, getTotalProducts } = useCartContext();
+  const { products, removeProduct, getTotalPrice, getTotalProducts } =
+    useCartContext();
 
   if (!products || products.length === 0) {
     return (

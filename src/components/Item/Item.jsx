@@ -1,9 +1,8 @@
 import { Link } from "react-router-dom";
 import { agregarPuntoAlNumero } from "../../utils/agregarPuntoAlNumero";
-import "./item.css"
+import "./item.css";
 
 const Item = ({ price, title, description, image, categoryId, id }) => {
-
   const removeLastLetter = (string) => string.substring(0, string.length - 1);
 
   return (

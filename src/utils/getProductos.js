@@ -14,7 +14,6 @@ export const getProductos = async () => {
       };
     });
     return productosList;
-    
   } catch (error) {
     console.log(error);
   }
