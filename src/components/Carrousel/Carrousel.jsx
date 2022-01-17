@@ -11,7 +11,7 @@ const Carrousel = () => {
   return (
     <div
       id="carouselExampleIndicators"
-      className="carousel slide border-bottom-instagram"
+      className="carousel carousel-dark slide border-bottom-instagram"
       data-bs-ride="carousel"
     >
       <div className="carousel-indicators">

@@ -1,4 +1,3 @@
-
 import { useCartContext } from "../../context/CartContext";
 import { IoCartOutline } from "react-icons/io5";
 
@@ -12,20 +11,18 @@ const CartWidget = () => {
       {getTotalProducts() === 0 ? (
         <span
           style={{ fontSize: "0.73rem" }}
-          className="position-absolute top-0 start-100 translate-middle badge rounded-pill "
+          className="position-absolute top-0 start-100 translate-middle badge rounded-pill"
         >
           {getTotalProducts()}
-          <span class="visually-hidden"></span>
+          <span className="visually-hidden"></span>
         </span>
       ) : (
         <span
           style={{ fontSize: "0.73rem", fontWeight: "bold" }}
-          className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger  "
+          className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
         >
-            {getTotalProducts() < 100 ? 
-              getTotalProducts() :
-                '99+'}
-          <span class="visually-hidden"></span>
+          {getTotalProducts() < 100 ? getTotalProducts() : "99+"}
+          <span className="visually-hidden"></span>
         </span>
       )}
     </div>

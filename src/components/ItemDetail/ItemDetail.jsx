@@ -7,10 +7,9 @@ import { agregarPuntoAlNumero } from "../../utils/agregarPuntoAlNumero";
 import useItemCount from "../../hooks/useItemCount";
 import Msg from "../Widgets/Notifications";
 
-const ItemDetail = ({ product }) => {
+const ItemDetail = ( { product }) => {
   const { title, image, description, price, id } = product;
   const { addToCart, getTotalProducts } = useCartContext();
-
   const { count: quantity, setCount, RenderItemCount } = useItemCount();
 
   const notify = () =>
@@ -68,9 +67,9 @@ const ItemDetail = ({ product }) => {
                       className="btn-check"
                       name="talles"
                       id={e}
-                      autocomplete="off"
+                      autoComplete="off"
                     />
-                    <label className="btn btn-secondary mx-1" for={e}>
+                    <label className="btn btn-secondary mx-1" htmlFor={e}>
                       {e}
                     </label>
                   </div>
@@ -83,9 +82,9 @@ const ItemDetail = ({ product }) => {
                       className="btn-check"
                       name="colores"
                       id={name}
-                      autocomplete="off"
+                      autoComplete="off"
                     />
-                    <label className={colorClassName} for={name}>
+                    <label className={colorClassName} htmlFor={name}>
                       {name}
                     </label>
                   </div>
@@ -94,7 +93,7 @@ const ItemDetail = ({ product }) => {
                 <RenderItemCount className="mt-3" />
                 <div className="bg-dark bg-opacity-75 my-2 py-2">
                   <p className="h6 card-text">
-                    Precio x unidad: ${`${price}`}
+                    Precio x unidad: ${`${agregarPuntoAlNumero(price)}`}
                   </p>
                   <p className="d-inline-block h4 card-text">
                     Precio total: ARS${" "}

@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 import { useCartContext } from "../../context/CartContext";
 import { AiTwotoneDelete, AiOutlineHeart } from "react-icons/ai";
-import "./cart.css"
+import { agregarPuntoAlNumero } from "../../utils/agregarPuntoAlNumero";
+import "./cart.css";
 
 const Cart = () => {
 
@@ -9,25 +10,21 @@ const Cart = () => {
 
   if (!products || products.length === 0) {
     return (
-        <div className="box pt-5">
-        <div className="container blur p-2 border-instagram"> 
+      <div className="box pt-5">
+        <div className="container blur p-2 border-instagram">
           <p className="h2 text-white text-center">
             Todavía no agregaste nada al carrito
           </p>
-          <div class="d-grid gap-2 col-6 mx-auto">
-          <Link
-            className="m-auto bottom-0 end-0"
-            to="/productos"
-          >
-            <button className="btn btn-dark border-instagram">
-              Ver qué puedo agregar <AiOutlineHeart />
-            </button>
-          </Link>
+          <div className="d-grid gap-2 col-6 mx-auto">
+            <Link className="m-auto bottom-0 end-0" to="/productos">
+              <button className="btn btn-dark border-instagram">
+                Ver qué puedo agregar <AiOutlineHeart />
+              </button>
+            </Link>
+          </div>
         </div>
-        
-        </div>
-          <span className="fs-1">☠️</span>
-        </div>
+        <span className="fs-1">☠️</span>
+      </div>
     );
   } else {
     return (
@@ -73,10 +70,14 @@ const Cart = () => {
                                   Cantidad: {quantity}
                                 </p>
                                 <p className="card-text">
-                                  <small>Precio unitario: ARS$ {price}</small>
+                                  <small>
+                                    Precio unitario: ARS${" "}
+                                    {agregarPuntoAlNumero(price)}
+                                  </small>
                                 </p>
                                 <p className="card-text">
-                                  Total por producto: ARS$ {quantity * price}
+                                  Total por producto: ARS${" "}
+                                  {agregarPuntoAlNumero(quantity * price)}
                                 </p>
                               </div>
                             </div>
@@ -100,7 +101,9 @@ const Cart = () => {
             )}
           </table>
           <section className="border-0">
-            <p className="d-inline  h5 text-white">TOTAL: ARS$ {getTotalPrice()}</p>
+            <p className="d-inline  h5 text-white">
+              TOTAL: ARS$ {agregarPuntoAlNumero(getTotalPrice())}
+            </p>
           </section>
         </div>
         <div className="d-grid d-md-inline-block gap-2 mb-2">

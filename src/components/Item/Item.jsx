@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { agregarPuntoAlNumero } from "../../utils/agregarPuntoAlNumero";
 import "./item.css"
 
 const Item = ({ price, title, description, image, categoryId, id }) => {
@@ -27,7 +28,6 @@ const Item = ({ price, title, description, image, categoryId, id }) => {
               </label>
             </div>
           </secction>
-
           <secction className="col-6 col-sm-12 card-body p-0">
             <div className="row m-1">
               <dd className="col-12 p-2 text-center">
@@ -36,7 +36,9 @@ const Item = ({ price, title, description, image, categoryId, id }) => {
               </dd>
               <div className="col-12 m-auto">
                 <div className="d-grid gap-2">
-                  <h3 className="text-center border-1">$ {`${price}`}</h3>
+                  <h3 className="text-center border-1">
+                    $ {`${agregarPuntoAlNumero(price)}`}
+                  </h3>
                   <Link
                     className="btn btn-dark w-auto text-center border-instagram"
                     to={`/productos/${id}`}
