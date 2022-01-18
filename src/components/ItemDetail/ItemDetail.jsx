@@ -95,11 +95,11 @@ const ItemDetail = ({ product }) => {
                     </label>
                   </div>
                 ))}
-
-                <RenderItemCount className="mt-3" />
+                <p className="mt-2">Seleccionar Cantidad:</p>
+                <RenderItemCount className={"mb-3"} />
                 <div className="bg-dark bg-opacity-75 my-2 py-2">
                   <p className="h6 card-text">
-                    Precio x unidad: ${`${agregarPuntoAlNumero(price)}`}
+                    Precio por unidad: ARS$ {`${agregarPuntoAlNumero(price)}`}
                   </p>
                   <p className="d-inline-block h4 card-text">
                     Precio total: ARS${" "}
@@ -125,22 +125,23 @@ const ItemDetail = ({ product }) => {
                 progressClassName="bg-danger border-instagram"
               />
 
-      <section className="text-center mt-4">
-        <Link to="/productos">
-          <button className="btn btn-dark border-instagram mt-1 m-2">
-            Volver <IoIosUndo />
-          </button>
-        </Link>
-        {getTotalProducts() > 0 ? (
-          <Link to="/carrito">
-            <button className="btn btn-dark border-instagram m-2">
-              Terminar Compra{" "}
-              <IoCartOutline style={{ color: "white", fontSize: "1rem" }} />
-            </button>
-          </Link>
-        ) : null}
-      </section>
-
+              <section className="text-center mt-4">
+                <Link to="/productos">
+                  <button className="btn btn-dark border-instagram mt-1 m-2">
+                    Volver <IoIosUndo />
+                  </button>
+                </Link>
+                {getTotalProducts() > 0 ? (
+                  <Link to="/carrito">
+                    <button className="btn btn-dark border-instagram m-2">
+                      Terminar Compra{" "}
+                      <IoCartOutline
+                        style={{ color: "white", fontSize: "1rem" }}
+                      />
+                    </button>
+                  </Link>
+                ) : null}
+              </section>
             </div>
           </div>
         </div>
