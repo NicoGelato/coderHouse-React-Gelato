@@ -1,4 +1,6 @@
 # E-commerce - React -  CoderHouse - Comisión 19730
+## https://leedsindumentaria.netlify.app/
+
 
 Este Ecommerce fue mi proyecto final para el curso de React en CoderHouse. Luego de finalizado el mismo, lo continúo mejorando para que sea un Ecommerce completamente funcional. 
 
@@ -17,7 +19,6 @@ Plataforma de base de datos:
 Librería CSS:
    Bootstrap 5.1.3   
  
-## https://leedsindumentaria.netlify.app/
 
 ### Contacto 
 
