@@ -15,7 +15,7 @@ const Loader = () => {
   return (
     <div className="m-5 opacity-75 text-center">
       {tardoMucho ? (
-        <h1 className="d-inline-block text-center text-white bg-dark bg-opacity-75 h3 p-5">
+        <h1 className="d-inline-block text-center text-white bg-dark bg-opacity-50 h3 p-5 border-instagram">
           ☠️ No se pudieron cargar los productos, por favor intente más tarde ☠️
         </h1>
       ) : (
