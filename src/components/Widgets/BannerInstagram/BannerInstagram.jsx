@@ -14,7 +14,7 @@ const BannerInstagram = () => {
     >
       <button
         type="button"
-        className="position-absolute mt-2 btn-close"
+        className="position-absolute mt-2 btn-close m-1"
         onClick={close}
         title="Cerrar"
         aria-label="Close"

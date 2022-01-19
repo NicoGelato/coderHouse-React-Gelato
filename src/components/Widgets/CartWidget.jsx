@@ -19,7 +19,7 @@ const CartWidget = () => {
       ) : (
         <span
           style={{ fontSize: "0.73rem", fontWeight: "bold" }}
-          className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+          className="border border-dark position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
         >
           {getTotalProducts() < 100 ? getTotalProducts() : "99+"}
           <span className="visually-hidden"></span>

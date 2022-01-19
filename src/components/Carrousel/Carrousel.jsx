@@ -33,21 +33,19 @@ const Carrousel = () => {
 
       <div className="carousel-inner">
         <div className="carousel-item active">
-          <img
-            src={final1}
-            className="d-block w-100"
-            alt="..."
-            // style={{ height: "100%" }}
-          />
+          <img src={final1} className="d-block w-100" alt="..." />
 
-          <div className="card-img-overlay container m-5 p-5">
-            <span className="h2 bg-dark text-white m-3">Bienvenid@s 🤙</span>{" "}
+          <div className="card-img-overlay container m-auto p-5">
+            <span className="h2 bg-dark text-white m-3">
+              {" "}
+              👋 Bienvenid@s! {" "}
+            </span>{" "}
             <br />
-            <b className="h3 bg-warning m-5"> Que acelga? 🥑</b>
+            <b className="h3 bg-warning m-5">   </b>
             <br />
             <b className="h6 bg-dark text-white m-3">
               {" "}
-              ahre que eso no es una acelga
+              
             </b>
           </div>
         </div>

@@ -162,30 +162,6 @@
 
 /* El efecto del cart vacio */
 
-/* Zoom de las imagenes */
-.containerImg input[type="checkbox"] {
-  display: none;
-}
-
-.containerImg img {
-  cursor: zoom-in;
-  transition: transform 0.25s ease;
-  -webkit-transition: transform 0.25s ease;
-  -moz-transition: transform 0.25s ease;
-  -ms-transition: transform 0.25s ease;
-  -o-transition: transform 0.25s ease;
-}
-
-.containerImg :checked ~ label > img {
-  cursor: zoom-out;
-  transform: scale(1.5);
-  -webkit-transform: scale(1.5);
-  -moz-transform: scale(1.5);
-  -ms-transform: scale(1.5);
-  -o-transform: scale(1.5);
-}
-/* Zoom de las imagenes */
-
 /* Boton de eliminar */
 .trashCan {
   color: #f8f9fa;

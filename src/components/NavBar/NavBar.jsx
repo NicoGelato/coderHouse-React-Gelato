@@ -13,18 +13,16 @@ const NavBar = () => {
       : setNotificationBurgerButton("");
   };
 
-
-
   const { getTotalProducts } = useCartContext();
 
   return (
     <nav className="navbar navbar-dark navbar-expand-sm bg-dark px-4 sticky-top">
-      <NavLink className="navbar-brand " to="/">
+      <NavLink className="navbar-brand " to="/" title="Inicio Indumentarias Leeds">
         <h1 className="text-white h3">☠️ Leeds</h1>
       </NavLink>
       <button
         className="navbar-toggler d-sm-block d-md-none shadow-none border-0"
-        onClick={()=> hunddleViewNotification()}
+        onClick={() => hunddleViewNotification()}
         type="button"
         data-bs-toggle="collapse"
         data-bs-target="#toggleMobileMenu"
@@ -52,6 +50,7 @@ const NavBar = () => {
             activeClassName="border-bottom-instagram"
             className="nav-link text-white p-2 mx-2"
             to="/productos"
+            title="Ver los productos"
           >
             Productos
           </NavLink>
@@ -59,6 +58,7 @@ const NavBar = () => {
             activeClassName="border-bottom-instagram"
             className="nav-link text-white p-2 mx-2 mt-2 mt-sm-0"
             to="/carrito"
+            title="Ir al Carrito"
           >
             <CartWidget />
           </NavLink>

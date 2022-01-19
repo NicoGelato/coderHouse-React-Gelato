@@ -50,16 +50,11 @@ const Cart = () => {
                         >
                           <div className="row g-0">
                             <div className="col-md-3">
-                              <div className="containerImg ">
-                                  <input type="checkbox" id={id} />
-                                  <label htmlFor={id}>
-                                    <img
-                                      className="img-fluid rounded-start"
-                                      src={`${image}`}
-                                      alt={`${categoryId} : ${title}`}
-                                    />
-                                  </label>
-                              </div>
+                              <img
+                                className="img-fluid rounded-start"
+                                src={`${image}`}
+                                alt={`${categoryId} : ${title}`}
+                              />
                             </div>
                             <div className="col-md-8">
                               <div className="card-body">
@@ -79,6 +74,11 @@ const Cart = () => {
                                   {agregarPuntoAlNumero(quantity * price)}
                                 </p>
                               </div>
+                          <Link className="btn" to={`/productos/${id}`}>
+                            <button className="btn btn-dark bg-dark border-instagram">
+                              Agregar similar{" "}
+                            </button>
+                          </Link>
                             </div>
                             <div className="col-md-1 text-end trashCan">
                               <i>
@@ -106,7 +106,7 @@ const Cart = () => {
           </section>
         </div>
         <div className="d-grid d-md-inline-block gap-2 mt-1 mb-3">
-          <button className="btn  btn-dark border-instagram m-2">
+          <button className="btn  btn-dark border-instagram m-2" onClick={()=>alert("Aun no hemos agregado un metodo de pago ")}>
             COMPRAR
           </button>
           <Link className="btn" to="/productos">

@@ -5,7 +5,7 @@ import { ToastContainer, toast } from "react-toastify";
 import { useCartContext } from "../../context/CartContext";
 import { agregarPuntoAlNumero } from "../../utils/frontend/agregarPuntoAlNumero";
 import useItemCount from "../../hooks/useItemCount";
-import Msg from "../Widgets/Notifications";
+import Notification from "../Widgets/Notification";
 import "./itemDetail.css";
 
 const ItemDetail = ({ product }) => {
@@ -14,7 +14,7 @@ const ItemDetail = ({ product }) => {
   const { count: quantity, setCount, RenderItemCount } = useItemCount();
 
   const notify = () =>
-    toast(<Msg quantity={quantity} id={id} title={title} />, {
+    toast(<Notification quantity={quantity} id={id} title={title} />, {
       icon: "☠️",
       theme: "dark",
       position: "top-center",
@@ -43,16 +43,19 @@ const ItemDetail = ({ product }) => {
       >
         <div className="row g-0">
           <div className="col-md-5">
-            <div className="containerItemDetailImg">
-              <input type="checkbox" id="itemDetailImg" />
-              <label htmlFor="itemDetailImg">
+            <section className="containerImgItemDetail">
+              <input type="checkbox" id="imgItemDetail" />
+              <label htmlFor="imgItemDetail">
+              <div className="lightbox">
+                <span style={{ backgroundImage: `url(${image})` }} />
+              </div>
                 <img
                   src={`${image}`}
                   className="img-fluid rounded mt-3"
                   alt={`Nombre: ${title} Descripción:${description}`}
                 />
               </label>
-            </div>
+            </section>
             <small className="bg-dark p-1 opacity-75">
               *Imagen ilustrativa
             </small>

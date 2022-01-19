@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { IoCartOutline } from "react-icons/io5";
 import { BsCartX } from "react-icons/bs";
 
-const Msg = ({ quantity, title, id }) => {
+const Notification = ({ quantity, title, id }) => {
   const { undoAddToCart } = useCartContext();
 
   return (
@@ -33,4 +33,4 @@ const Msg = ({ quantity, title, id }) => {
   );
 };
 
-export default Msg;
+export default Notification;
