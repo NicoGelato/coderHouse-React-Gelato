@@ -38,10 +38,10 @@ const Carrousel = () => {
           <div className="card-img-overlay container m-auto p-5">
             <span className="h2 bg-dark text-white m-3">
               {" "}
-              👋 Bienvenid@s! {" "}
+              {" "}
             </span>{" "}
             <br />
-            <b className="h3 bg-warning m-5">   </b>
+            <b className="h2 bg-warning m-5">   </b>
             <br />
             <b className="h6 bg-dark text-white m-3">
               {" "}
