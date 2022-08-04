@@ -14,7 +14,7 @@ const Carrousel = () => {
   return (
     <div
       id="carouselExampleIndicators"
-      className="carousel carousel-dark slide border-bottom-instagram"
+      className="carousel carousel-dark slide "
       data-bs-ride="carousel"
     >
       <div className="carousel-indicators">
@@ -36,17 +36,14 @@ const Carrousel = () => {
           <img src={final1} className="d-block w-100" alt="..." />
 
           <div className="card-img-overlay container m-auto p-5">
-            <span className="h2 bg-dark text-white m-3">
+            <span className="h1 bg-dark text-white m-3">
               {" "}
+              
               {" "}
             </span>{" "}
             <br />
-            <b className="h2 bg-warning m-5">   </b>
-            <br />
-            <b className="h6 bg-dark text-white m-3">
-              {" "}
-              
-            </b>
+            <b className="h1 bg-warning m-5"></b>
+
           </div>
         </div>
         <div className="carousel-item">

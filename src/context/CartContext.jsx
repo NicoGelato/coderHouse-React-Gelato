@@ -43,6 +43,7 @@ const CartProvider = ({ children }) => {
 
   const undoAddToCart = (id, quantity) => {
     const existProduct = products.find((product) => product.id === id);
+    
     if (existProduct) {
       existProduct.quantity -= quantity;
       setAndStore([...products]);

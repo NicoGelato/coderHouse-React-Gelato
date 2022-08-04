@@ -43,8 +43,8 @@ const ItemListContainer = () => {
         <Loader />
       ) : (
         <div className="container">
-          <nav className="navbar sticky-top-2  ">
-            <ul className="nav">
+          <nav className="navbar sticky-top-2 ">
+            <ul className="nav border-bottom-instagram">
               <li className="nav-item">
                 <NavLink
                   className="nav-link bg-dark text-white"
@@ -69,6 +69,15 @@ const ItemListContainer = () => {
                   to="/productos/categoria/buzos"
                 >
                   Buzos
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink
+                  className="nav-link bg-dark text-white"
+                  activeClassName="border-instagram"
+                  to="/productos/categoria/camperas"
+                >
+                  Camperas
                 </NavLink>
               </li>
             </ul>

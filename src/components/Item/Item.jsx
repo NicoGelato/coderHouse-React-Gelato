@@ -19,7 +19,11 @@ const Item = ({ price, title, description, image, categoryId, id }) => {
                   src={`${image}`}
                   className="card-img w-100 "
                   style={{
-                    height: "100%",
+                    height: "250px",
+
+                    width: "250px",
+
+                    objectFit: "cover",
                   }}
                   alt={`${description}`}
                 />

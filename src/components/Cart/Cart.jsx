@@ -11,7 +11,7 @@ const Cart = () => {
   if (!products || products.length === 0) {
     return (
       <div className="box pt-5">
-        <div className="container blur p-2 border-instagram">
+        <div className="container blur p-2 ">
           <p className="h2 text-white text-center">
             Todavía no agregaste nada al carrito
           </p>
